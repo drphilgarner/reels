@@ -44,7 +44,7 @@
     <Compile Include="Views\TodoListPageCS.cs" />
     <Compile Include="Views\TodoItemPageCS.cs" />
     <Compile Include="Models\TodoItem.cs" />
-    <Compile Include="Data\TodoItemDatabase.cs" />
+    <Compile Include="Data\FoliownDatabase.cs" />
     <Compile Include="ITextToSpeech.cs" />
     <Compile Include="IFileHelper.cs" />
   </ItemGroup>

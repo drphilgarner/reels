@@ -406,6 +406,12 @@
     <AppxPackagedFile Include="C:\Users\live\source\Todo\Todo\bin\Debug\QuickTodo.dll">
       <PackagePath>QuickTodo.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\live\source\Todo\Todo\bin\Debug\Plugin.Permissions.Abstractions.dll">
+      <PackagePath>Plugin.Permissions.Abstractions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\live\source\Todo\Todo\bin\Debug\Plugin.Permissions.dll">
+      <PackagePath>Plugin.Permissions.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\live\source\Todo\Todo.UWP\add.png">
       <PackagePath>add.png</PackagePath>
     </AppxPackagedFile>

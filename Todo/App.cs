@@ -2,13 +2,14 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Diagnostics;
+using Todo.Data;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Todo
 {
 	public class App : Application
 	{
-		static TodoItemDatabase database;
+		static FoliownDatabase database;
 
 	    public TodoListPage ListPage;
 
@@ -31,19 +32,10 @@ namespace Todo
 		    MainPage = nav;
 		}
 
-		public static TodoItemDatabase Database
-		{
-			get
-			{
-				if (database == null)
-				{
-					database = new TodoItemDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("TodoSQLite.db3"));
-				}
-				return database;
-			}
-		}
+		public static FoliownDatabase Database => database ??
+		                                          (database = new FoliownDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("TodoSQLite.db3")));
 
-		public int ResumeAtTodoId { get; set; }
+	    public int ResumeAtTodoId { get; set; }
 
 		protected override void OnStart()
 		{

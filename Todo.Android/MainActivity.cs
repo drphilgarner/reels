@@ -62,6 +62,7 @@ namespace Todo
 
                 _fileGuids.Add(g1.ToString());
 
+                //TODO move this to SD card
                 var videoFile = new File(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryMovies), vidFileName);
 
                 vidIntent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile((videoFile)));

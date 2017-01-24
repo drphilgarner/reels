@@ -456,3 +456,9 @@ C:\Users\live\source\Todo\Todo.UWP\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\live\source\Todo\Todo.UWP\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\live\source\Todo\Todo.UWP\obj\x86\Debug\Xamarin.Forms.Platform.UAP.pri.xml
 C:\Users\live\source\Todo\Todo.UWP\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\live\source\Todo\Todo.UWP\bin\x86\Debug\Plugin.Permissions.Abstractions.dll
+C:\Users\live\source\Todo\Todo.UWP\bin\x86\Debug\Plugin.Permissions.dll
+C:\Users\live\source\Todo\Todo.UWP\bin\x86\Debug\Plugin.Permissions.Abstractions.pdb
+C:\Users\live\source\Todo\Todo.UWP\bin\x86\Debug\Plugin.Permissions.Abstractions.xml
+C:\Users\live\source\Todo\Todo.UWP\bin\x86\Debug\Plugin.Permissions.pdb
+C:\Users\live\source\Todo\Todo.UWP\bin\x86\Debug\Plugin.Permissions.xml

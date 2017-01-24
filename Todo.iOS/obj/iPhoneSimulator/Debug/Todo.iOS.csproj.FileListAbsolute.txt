@@ -128,5 +128,11 @@ C:\Users\live\source\Todo\Todo.iOS\obj\iPhoneSimulator\Debug\optimized\
 C:\Users\live\source\Todo\Todo.iOS\obj\iPhoneSimulator\Debug\Todo.iOS.csprojResolveAssemblyReference.cache
 C:\Users\live\source\Todo\Todo.iOS\obj\iPhoneSimulator\Debug\TodoiOS.exe
 C:\Users\live\source\Todo\Todo.iOS\obj\iPhoneSimulator\Debug\TodoiOS.pdb
+C:\Users\live\source\Todo\Todo.iOS\bin\iPhoneSimulator\Debug\Plugin.Permissions.Abstractions.dll
+C:\Users\live\source\Todo\Todo.iOS\bin\iPhoneSimulator\Debug\Plugin.Permissions.dll
+C:\Users\live\source\Todo\Todo.iOS\bin\iPhoneSimulator\Debug\Plugin.Permissions.Abstractions.pdb
+C:\Users\live\source\Todo\Todo.iOS\bin\iPhoneSimulator\Debug\Plugin.Permissions.Abstractions.xml
+C:\Users\live\source\Todo\Todo.iOS\bin\iPhoneSimulator\Debug\Plugin.Permissions.pdb
+C:\Users\live\source\Todo\Todo.iOS\bin\iPhoneSimulator\Debug\Plugin.Permissions.xml
 C:\Users\live\source\Todo\Todo.iOS\obj\iPhoneSimulator\Debug\TodoiOS.exe.mdb
 C:\Users\live\source\Todo\Todo.iOS\bin\iPhoneSimulator\Debug\TodoiOS.exe.mdb

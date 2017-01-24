@@ -3,6 +3,7 @@ using System.Diagnostics;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using Xamarin.Forms;
+using Todo.Data;
 
 namespace Todo
 {
@@ -13,28 +14,50 @@ namespace Todo
 			InitializeComponent();
 
 		    RequestCameraPermission();
+		    RequestStoragePermission();
 
 		    BtnLaunchVideo.Command = new Command(() => ShouldTakeVideo());
 		}
 
-	    private async void RequestCameraPermission()
-	    {
-            var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
+        private async void RequestStoragePermission()
+        {
+            var storagePermission = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
 
-            if (status != PermissionStatus.Granted)
+            if (storagePermission != PermissionStatus.Granted)
+            {
+                if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Storage))
+                {
+                    Debug.WriteLine("Need to request storage permissions");
+                }
+
+                var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Storage);
+                storagePermission = results[Permission.Storage];
+            }
+
+            if (storagePermission == PermissionStatus.Granted)
+            {
+                Debug.WriteLine("Storage permission granted");
+            }
+        }
+
+        private async void RequestCameraPermission()
+	    {
+            var cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
+            
+            if (cameraStatus != PermissionStatus.Granted)
             {
                 if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Camera))
                 {
                     Debug.WriteLine("Need to request Camera permissions");
                 }
 
-                var results = await CrossPermissions.Current.RequestPermissionsAsync(new[] { Permission.Camera });
-                status = results[Permission.Camera];
+                var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Camera);
+                cameraStatus = results[Permission.Camera];
             }
 
-            if (status == PermissionStatus.Granted)
+            if (cameraStatus == PermissionStatus.Granted)
             {
-
+                Debug.WriteLine("Camera permission granted");
             }
         }
 
@@ -72,11 +95,20 @@ namespace Todo
 		}
 
 
-        public void HandleCapturedVideo(string filePath)
+        public async void HandleCapturedVideo(string filePath)
         {
             Debug.WriteLine($"Video captured at {filePath}");
 
+            await App.Database.SaveClip(new VideoClip {CaptureTime = DateTime.Now, Path = filePath});
 
+
+            //pull it out again to check
+            var clips = await App.Database.GetClipsAsync();
+
+            foreach (var clip in clips)
+            {
+                Debug.WriteLine($"Clip from DB {clip} taken at {clip.CaptureTime}");
+            }
         }
 
         public void DisplayVideoThumb(string filePath)
