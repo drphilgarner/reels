@@ -1,2 +1,0 @@
-C:\Users\live\source\Todo\Todo.UWP\Todo.UWP.csproj;x86
-C:\Users\live\source\Todo\Todo\Todo.csproj;neutral
