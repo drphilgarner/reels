@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using Xamarin.Forms;
@@ -111,12 +112,19 @@ namespace Todo
             }
         }
 
-        public void DisplayVideoThumb(string filePath)
+        public async void ProcessCapturedVideoClip(byte[] thumbnail, string videoPath)
         {
-            //imgFromCamera.Source = ImageSource.FromFile(filePath);
+            //imgFromCamera.Source = ImageSource.FromFile(thumbnailPath);
+
+            //read the thumbnail
+            await App.Database.SaveClip(new VideoClip
+            {
+                CaptureTime = DateTime.Now, Path = videoPath, Thumbnail = thumbnail
+            });
+
 
         }
 
-        
-	}
+
+    }
 }

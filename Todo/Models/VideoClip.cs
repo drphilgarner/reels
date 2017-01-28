@@ -12,6 +12,8 @@ namespace Todo
 
         public DateTime CaptureTime { get; set; }
 
+        public byte[] Thumbnail { get; set; }
+
         public override string ToString()
         {
             return Path ?? "undefined";

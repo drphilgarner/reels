@@ -86,7 +86,7 @@ namespace Todo
 
             if (_capturedVideoPath != string.Empty)
             {
-                app?.ListPage.HandleCapturedVideo(_capturedVideoPath);
+                //app?.ListPage.HandleCapturedVideo(_capturedVideoPath);
 
                 Bitmap thumbBitmap = ThumbnailUtils.CreateVideoThumbnail(_capturedVideoPath, ThumbnailKind.MiniKind);
 
@@ -99,15 +99,11 @@ namespace Todo
                 thumbBitmap.Compress(Bitmap.CompressFormat.Png, 100, fs);
                 fs.Close();
 
-                app?.ListPage.DisplayVideoThumb(filePath);
 
-
-                //var bos = new MemoryStream();
-                //thumbBitmap.Compress(Bitmap.CompressFormat.Png, 0, bos);
-                //var bitmapData = bos.ToArray();
-                //app?.MyMainPage.HandleCapturedThumbnail(bitmapData);
-                //app?.MyMainPage.HandleCapturedThumbnail(Stream stream);
-
+                var thumbBytes = System.IO.File.ReadAllBytes(filePath);
+                
+                app?.ListPage.ProcessCapturedVideoClip(thumbBytes, _capturedVideoPath);
+                
             }
 
             base.OnActivityResult(requestCode, resultCode, data);
