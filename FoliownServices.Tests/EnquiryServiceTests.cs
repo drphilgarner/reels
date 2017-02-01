@@ -14,7 +14,7 @@ namespace FoliownServices.Tests
         private const string TestManufacturer = "MERCEDES";
 
         [Fact(Skip="Don't want to hit API all the time")]
-        public void Can_Get_Details()
+        public void Can_Get_Enquiry_Details()
         {
             var service = new UkVehicleEnquiryService();
 
@@ -28,6 +28,11 @@ namespace FoliownServices.Tests
                 Console.WriteLine($"Written to {logPath}");
             }
 
+        }
+
+        public void Can_Get_Mot_Details()
+        {
+            
         }
 
         [Fact]
