@@ -2,13 +2,15 @@
 
 namespace FoliownServices
 {
-    public class VehicleDetails
+    public class VesVehicleDetails
     {
         public string Manufacturer { get; set; }
 
         public string  Model { get; set; }
 
         public string VRM { get; set; }
+
+        public DateTimeOffset QueryDateTime { get; set; }
         
 
         public DateTimeOffset TaxDueDate { get; set; }
@@ -36,9 +38,6 @@ namespace FoliownServices
         public string  RevenueWeight { get; set; }
 
         public string FuelType { get; set; }
-
-
-
-
+        public bool HasFailedLookup { get; set; }
     }
 }

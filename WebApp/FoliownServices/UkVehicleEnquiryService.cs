@@ -7,7 +7,7 @@ using AngleSharp.Parser.Html;
 
 namespace FoliownServices
 {
-    public class UkVehicleEnquiryService
+    public class UkVehicleEnquiryService : IEnquiryService
     {
         private const string VehicleEnquiryServiceUrl = "https://vehicleenquiry.service.gov.uk/ViewVehicle";
         const string VehicleMake = "Vehicle make";
@@ -45,15 +45,26 @@ namespace FoliownServices
             }
         }
 
-        public async Task<VehicleDetails> ParseResponse(string response)
+        public async Task<VesVehicleDetails> ParseResponse(string response)
         {
             var parser = new HtmlParser();
 
             var document = await parser.ParseAsync(response);
 
-            var vehicle = new VehicleDetails();
+            var vehicle = new VesVehicleDetails
+            {
+                QueryDateTime = DateTimeOffset.Now
+            };
+
+
+            vehicle.HasFailedLookup = document.All.Any(t => t.TextContent.Contains("Vehicle details could not be found"));
+
+            if (vehicle.HasFailedLookup)
+                return vehicle;
 
             vehicle.VRM = document.All.FirstOrDefault(t => t.ClassName == "registrationNumber").TextContent;
+
+            
 
             var spans = document.GetElementsByTagName("span");
 

@@ -1,0 +1,518 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript">
+var dataLayer = [{
+    "event": "moth-query-success",
+    "title": "MOTH - history for a vehicle"
+}];</script>
+
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-PS5VXQ"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+        {'gtm.start': new Date().getTime(),event:'gtm.js'}
+        );var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PS5VXQ');</script>
+    <!-- End Google Tag Manager -->
+
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="mothistory.js"></script>
+
+    <!--[if gt IE 8]><!-->
+    <link href="Assets/Styles/govuk-template.css?25" media="screen" rel="stylesheet" type="text/css">
+    <!--<![endif]-->
+    <!--[if IE 6]><link href="Assets/Styles/govuk-template-ie6.css?25" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 7]><link href="Assets/Styles/govuk-template-ie7.css?25" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 8]><link href="Assets/Styles/govuk-template-ie8.css?25" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="Assets/Styles/govuk-template-print.css?25" media="print" rel="stylesheet" type="text/css">
+    <!--[if IE 8]>
+    <script type="text/javascript">
+      (function(){if(window.opera){return;}
+       setTimeout(function(){var a=document,g,b={families:(g=
+       ["nta"]),urls:["Assets/gds/fonts-ie8-ec274e547d95d22db00164cc291c8611.css"]},
+       c="Assets/gds/webfont-debug-96870cf9f159ed811fd43c39bdf4656b.js",d="script",
+       e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
+       ={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h=h-1;a.documentElement
+       .className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
+      })()
+    </script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+    <link href="Assets/gds/fonts-607c54f71c7c1f98257595cedaa13a34.css" media="screen" rel="stylesheet" type="text/css">
+    <!--<![endif]-->
+    <script src="Assets/gds/jquery-1.7.2-2ce4706f8f7193defaa9e7df2b641e9a.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+      <script src="Assets/Scripts/ie-fc5bd25c5f46587b9bff917417ab2b7f.js" type="text/javascript"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="Assets/Images/favicon-447e4ac1ab790342660eacfe3dcce264.ico" type="image/x-icon">
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="Assets/Images/apple-touch-icon-114x114-f1d7ccdc7b86d923386b373a9ba5e3db.png">
+    <!-- For iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="Assets/Images/apple-touch-icon-144x144-4e306e01c31e237722b82b7aa7130082.png">
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="Assets/Images/apple-touch-icon-72x72-2ddbe540853e3ba0d30fbad2a95eab3c.png">
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="Assets/Images/apple-touch-icon-57x57-37527434942ed8407b091aae5feff3f3.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="Assets/Images/opengraph-image-4e469785ca4cc8f8dd18d0627bc43d19.png">
+
+    <style type="text/css" media="screen">
+        ul.ul-data li {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            vertical-align: middle;
+        }
+
+        ul.testresult {
+            border-bottom-style: solid;
+            border-bottom-color: #000;
+            border-bottom-width: 1px;
+        }
+    </style>
+    <link href="Assets/Styles/app-specific.css" media="screen" rel="stylesheet" type="text/css">
+    <title>
+        Vehicle MOT History
+        - GOV.UK
+    </title>
+
+</head>
+<body class="js-enabled">
+    <div class="aspNetHidden">
+    </div>
+    <header role="banner" class="with-proposition" id="global-header">
+        <div class="header-wrapper">
+            <div class="header-global">
+                <div class="header-logo">
+                    <a href="https://www.gov.uk/" title="Go to the GOV.UK homepage" id="logo" class="content">
+                        <img src="Assets/Images/gov.uk_logotype_crown.png" width="35" height="31" alt=""> GOV.UK
+                    </a>
+                </div>
+                <!-- inside_header -->
+            </div>
+            <div class="header-proposition">
+                <div class="content">
+                    <nav id="proposition-menu">
+                        <a href="/" id="proposition-name">Vehicle MOT History</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--end header-->
+
+    <div id="global-header-bar"></div>
+    <!--end global-header-bar-->
+    <div class="maincontent">
+        <div class="phase-banner">
+            <p>
+                <strong class="phase-tag">BETA</strong>
+                <span>
+                    This is a new service – your
+                    <a href="http://www.smartsurvey.co.uk/s/mot-history">
+                        feedback
+                    </a> will help us to improve it.
+                </span>
+            </p>
+        </div>
+    </div>
+    <!--end of beta banner-->
+    <div id="wrapper">
+        <div class="maincontent">
+            <script src="Assets/Scripts/typeahead.min.js" type="text/javascript"></script>
+
+            <div class="start-header group">
+                <h1>
+                    Check the MOT history of a vehicle
+                </h1>
+            </div>
+
+
+            <div class="body-container group">
+                <div id="vehicle-info" class="group">
+                    <div>
+                        Registration number: <span class="registrationNumber">
+                            SG08BBS
+                        </span>
+                    </div>
+                    <div>&nbsp;</div>
+                    <ul class="ul-data" id="vehicle">
+                        <li>
+                            <span>Vehicle make</span>
+                            <span class="strong">MERCEDES</span>
+                        </li>
+
+                        <li>
+                            <span>Vehicle model</span>
+                            <span class="strong">CLS 320</span>
+                        </li>
+
+                        <li>
+                            <span>Date first used</span>
+                            <span class="strong">22 May 2008</span>
+                        </li>
+
+                        <li>
+                            <span>Fuel type</span>
+                            <span class="strong">Diesel</span>
+                        </li>
+
+                        <li>
+                            <span>Colour</span>
+                            <span class="strong">Blue</span>
+                        </li>
+
+                    </ul>
+                </div>
+                <div>&nbsp;</div>
+                <div id="vehicle-mot-history">
+                    <h2>MOT history of this vehicle</h2>
+
+                    <div id="results">
+                        <ul class="ul-data testresult" style="margin-bottom:20px;">
+                            <li>
+                                <span>Test date</span>
+                                <span class="strong">4 April 2016</span>
+                            </li>
+
+                            <li>
+                                <span>Expiry date</span>
+                                <span class="strong">15 April 2017</span>
+                            </li>
+
+                            <li>
+                                <span>Test Result</span>
+                                <span class="strong">Pass</span>
+                            </li>
+
+                            <li>
+                                <span>Odometer reading</span>
+                                <span class="strong">125,394 miles</span>
+                            </li>
+
+                            <li>
+                                <span>MOT test number</span>
+                                <span class="strong">8999 4898 1528</span>
+                            </li>
+
+                            <li>
+                                <span>Advisory notice item(s)</span>
+                                <br />
+                                <div style="padding-left:10px;">
+                                    <div class="group advice-comment">Brake pipe slightly corroded  n/s rear o/s front (3.6.B.2c)</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="ul-data testresult" style="margin-bottom:20px;">
+                            <li>
+                                <span>Test date</span>
+                                <span class="strong">16 April 2015</span>
+                            </li>
+
+                            <li>
+                                <span>Expiry date</span>
+                                <span class="strong">15 April 2016</span>
+                            </li>
+
+                            <li>
+                                <span>Test Result</span>
+                                <span class="strong">Pass</span>
+                            </li>
+
+                            <li>
+                                <span>Odometer reading</span>
+                                <span class="strong">115,021 miles</span>
+                            </li>
+
+                            <li>
+                                <span>MOT test number</span>
+                                <span class="strong">2587 8690 5101</span>
+                            </li>
+
+                            <li>
+                                <span>Advisory notice item(s)</span>
+                                <br />
+                                <div style="padding-left:10px;">
+                                    <div class="group advice-comment">front tyres worn inner tread</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="ul-data testresult" style="margin-bottom:20px;">
+                            <li>
+                                <span>Test date</span>
+                                <span class="strong">16 April 2015</span>
+                            </li>
+
+                            <li>
+                                <span>Test Result</span>
+                                <span class="strong">Fail</span>
+                            </li>
+
+                            <li>
+                                <span>Odometer reading</span>
+                                <span class="strong">115,021 miles</span>
+                            </li>
+
+                            <li>
+                                <span>MOT test number</span>
+                                <span class="strong">9766 6650 5132</span>
+                            </li>
+
+                            <li>
+                                <span>Reason(s) for failure</span>
+                                <br />
+                                <div style="padding-left:10px;">
+                                    <div class="group failure-comment">Offside Rear Brake pipe excessively corroded (3.6.B.2c)</div><div class="group failure-comment">Parking brake: efficiency below requirements (3.7.B.7)</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span>Advisory notice item(s)</span>
+                                <br />
+                                <div style="padding-left:10px;">
+                                    <div class="group advice-comment">front tyres worn inner tread</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="ul-data testresult" style="margin-bottom:20px;">
+                            <li>
+                                <span>Test date</span>
+                                <span class="strong">9 April 2014</span>
+                            </li>
+
+                            <li>
+                                <span>Expiry date</span>
+                                <span class="strong">15 April 2015</span>
+                            </li>
+
+                            <li>
+                                <span>Test Result</span>
+                                <span class="strong">Pass</span>
+                            </li>
+
+                            <li>
+                                <span>Odometer reading</span>
+                                <span class="strong">104,618 miles</span>
+                            </li>
+
+                            <li>
+                                <span>MOT test number</span>
+                                <span class="strong">4270 8919 4099</span>
+                            </li>
+
+                            <li>
+                                <span>Advisory notice item(s)</span>
+                                <br />
+                                <div style="padding-left:10px;">
+                                    <div class="group advice-comment">Windscreen has damage to an area less than a 40mm circle outside zone &#039;A&#039; (8.3.1d)</div><div class="group advice-comment">Nearside Front Lower Suspension arm rubber bush deteriorated but not resulting in excessive movement (2.4.G.2)</div><div class="group advice-comment">Offside Front Lower Suspension arm rubber bush deteriorated but not resulting in excessive movement (2.4.G.2)</div><div class="group advice-comment">Offside Front Upper Suspension arm has slight play in a ball joint (2.4.G.2)</div><div class="group advice-comment">Nearside Rear Tyre worn close to the legal limit (4.1.E.1)</div><div class="group advice-comment">Offside Rear Lower Suspension arm has slight play in a pin/bush (2.4.G.2)</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="ul-data testresult" style="margin-bottom:20px;">
+                            <li>
+                                <span>Test date</span>
+                                <span class="strong">9 April 2014</span>
+                            </li>
+
+                            <li>
+                                <span>Test Result</span>
+                                <span class="strong">Fail</span>
+                            </li>
+
+                            <li>
+                                <span>Odometer reading</span>
+                                <span class="strong">104,618 miles</span>
+                            </li>
+
+                            <li>
+                                <span>MOT test number</span>
+                                <span class="strong">4781 8919 4050</span>
+                            </li>
+
+                            <li>
+                                <span>Reason(s) for failure</span>
+                                <br />
+                                <div style="padding-left:10px;">
+                                    <div class="group failure-comment">Nearside Windscreen wiper does not clear the windscreen effectively (8.2.2)</div><div class="group failure-comment">Offside Windscreen wiper does not clear the windscreen effectively (8.2.2)</div><div class="group failure-comment">Offside Front Lower Suspension arm has excessive play in a ball joint (2.4.G.2)</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span>Advisory notice item(s)</span>
+                                <br />
+                                <div style="padding-left:10px;">
+                                    <div class="group advice-comment">Windscreen has damage to an area less than a 40mm circle outside zone &#039;A&#039; (8.3.1d)</div><div class="group advice-comment">Nearside Front Lower Suspension arm rubber bush deteriorated but not resulting in excessive movement (2.4.G.2)</div><div class="group advice-comment">Offside Front Lower Suspension arm rubber bush deteriorated but not resulting in excessive movement (2.4.G.2)</div><div class="group advice-comment">Offside Front Upper Suspension arm has slight play in a ball joint (2.4.G.2)</div><div class="group advice-comment">Rear brake disc worn, pitted or scored, but not seriously weakened (3.5.1i)</div><div class="group advice-comment">Nearside Rear Tyre worn close to the legal limit (4.1.E.1)</div><div class="group advice-comment">Offside Rear Lower Suspension arm has slight play in a pin/bush (2.4.G.2)</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="ul-data testresult" style="margin-bottom:20px;">
+                            <li>
+                                <span>Test date</span>
+                                <span class="strong">16 April 2013</span>
+                            </li>
+
+                            <li>
+                                <span>Expiry date</span>
+                                <span class="strong">15 April 2014</span>
+                            </li>
+
+                            <li>
+                                <span>Test Result</span>
+                                <span class="strong">Pass</span>
+                            </li>
+
+                            <li>
+                                <span>Odometer reading</span>
+                                <span class="strong">89,917 miles</span>
+                            </li>
+
+                            <li>
+                                <span>MOT test number</span>
+                                <span class="strong">9689 1640 3154</span>
+                            </li>
+
+                        </ul>
+                        <ul class="ul-data testresult" style="margin-bottom:20px;">
+                            <li>
+                                <span>Test date</span>
+                                <span class="strong">16 May 2012</span>
+                            </li>
+
+                            <li>
+                                <span>Expiry date</span>
+                                <span class="strong">22 May 2013</span>
+                            </li>
+
+                            <li>
+                                <span>Test Result</span>
+                                <span class="strong">Pass</span>
+                            </li>
+
+                            <li>
+                                <span>Odometer reading</span>
+                                <span class="strong">73,347 miles</span>
+                            </li>
+
+                            <li>
+                                <span>MOT test number</span>
+                                <span class="strong">2660 5753 2446</span>
+                            </li>
+
+                            <li>
+                                <span>Advisory notice item(s)</span>
+                                <br />
+                                <div style="padding-left:10px;">
+                                    <div class="group advice-comment">Nearside Front Tyre worn close to the legal limit (4.1.E.1)</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="ul-data testresult" style="margin-bottom:20px;">
+                            <li>
+                                <span>Test date</span>
+                                <span class="strong">26 April 2011</span>
+                            </li>
+
+                            <li>
+                                <span>Expiry date</span>
+                                <span class="strong">22 May 2012</span>
+                            </li>
+
+                            <li>
+                                <span>Test Result</span>
+                                <span class="strong">Pass</span>
+                            </li>
+
+                            <li>
+                                <span>Odometer reading</span>
+                                <span class="strong">53,439 miles</span>
+                            </li>
+
+                            <li>
+                                <span>MOT test number</span>
+                                <span class="strong">8271 6601 1127</span>
+                            </li>
+
+                            <li>
+                                <span>Advisory notice item(s)</span>
+                                <br />
+                                <div style="padding-left:10px;">
+                                    <div class="group advice-comment">Nearside Rear Tyre worn close to the legal limit (4.1.E.1)</div><div class="group advice-comment">Offside Rear Tyre worn close to the legal limit (4.1.E.1)</div><div class="group advice-comment">Windscreen has damage to an area less than a 40mm circle outside zone &#039;A&#039; (8.3.1d)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="action">
+                <a href="/" id="startAgain" class="button">Search again</a>
+            </div>
+
+            <div>&nbsp;</div>
+
+        </div>
+    </div>
+    <footer class="group js-footer" id="footer" role="contentinfo">
+        <div class="footer-wrapper">
+            <div class="footer-meta">
+                <div class="footer-meta-inner">
+                    <ul>
+                        <li>
+                            <a href="https://www.gov.uk/help/cookies" target="_blank">Cookies</a>
+                        </li>
+                        <li>
+                            <a href="https://www.gov.uk/help/terms-conditions" target="_blank">Terms and Conditions</a>
+                        </li>
+                    </ul>
+                    <div class="open-government-licence">
+                        <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/">Open Government Licence</a></p>
+                        <!--<h2>
+                            <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2">
+                                <img src="Assets/Images/open-government-licence_2x-d273d7eca3045d3b710a863d9bfc0b33.png"
+                                    alt="OGL"></a></h2>-->
+                        <p>
+                            All content is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2">
+                                Open Government Licence v2.0
+                            </a>, except where otherwise stated
+                        </p>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <a href="http://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm">
+                        © Crown copyright
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--end footer-->
+    <div id="global-app-error" class="app-error hidden"></div>
+    <script src="Assets/Scripts/core.js?25" type="text/javascript"></script>
+    <script src="Assets/Scripts/govuk-template.js?25" type="text/javascript"></script>
+    <script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("MainContent_rfvTxtSearchVRM"), document.getElementById("MainContent_revtxtSearchVrm1"), document.getElementById("MainContent_reqMakeTextBox"), document.getElementById("MainContent_RegularExpressionValidator1"));
+//]]>
+    </script>
+
+
+
+
+    <script type="text/javascript">
+//<![CDATA[
+(function() {
+var _analytics_scr = document.createElement('script');
+_analytics_scr.type = 'text/javascript'; _analytics_scr.async = true; _analytics_scr.src = '/_Incapsula_Resource?SWJIYLWA=2977d8d74f63d7f8fedbea018b7a1d05&ns=1';
+var _analytics_elem = document.getElementsByTagName('script')[0]; _analytics_elem.parentNode.insertBefore(_analytics_scr, _analytics_elem);
+})();
+// ]]>
+    </script>
+</body>
+</html>

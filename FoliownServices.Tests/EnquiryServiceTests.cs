@@ -76,6 +76,8 @@ namespace FoliownServices.Tests
 
             var result = vehicleDetails.Result;
 
+
+            Assert.False(result.HasFailedLookup);
             Assert.True(result.VRM == "SG08 BBS");
             Assert.True(result.Manufacturer == TestManufacturer);
             Assert.True(result.FirstRegisrationDate == "May 2008");
@@ -94,5 +96,24 @@ namespace FoliownServices.Tests
             Assert.True(result.MotExpiryDate == DateTimeOffset.Parse("15 April 2017"));
 
         }
+
+        public void Can_Parse_Failure_Message()
+        {
+            var service = new UkVehicleEnquiryService();
+
+            var assembly = typeof(EnquiryServiceTests).GetTypeInfo().Assembly;
+            var resourceStream = assembly.GetManifestResourceStream("FoliownServices.Tests.SG08BBSResult.html");
+
+            var testResponse = new StreamReader(resourceStream).ReadToEnd();
+
+            var vehicleDetails = service.ParseResponse(testResponse);
+
+            var result = vehicleDetails.Result;
+
+
+            Assert.True(result.HasFailedLookup);
+        }
+
+
     }
 }

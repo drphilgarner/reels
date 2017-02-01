@@ -8,7 +8,7 @@
   },
 
   "buildOptions":{
-    "embed": [ "m40saxResult.html", "SG08BBSResult.html" ]
+    "embed": [ "m40saxResult.html", "SG08BBSResult.html", "NoVehicleFound.html", "SG08BBS.Mot.Result.html" ]
   },
   
   "frameworks": {
