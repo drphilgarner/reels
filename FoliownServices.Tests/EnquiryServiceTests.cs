@@ -68,6 +68,46 @@ namespace FoliownServices.Tests
         }
 
         [Fact]
+        public void Can_Parse_Mot_History()
+        {
+            var service = new CheckMotService();
+
+            var assembly = typeof(EnquiryServiceTests).GetTypeInfo().Assembly;
+            var resourceStream = assembly.GetManifestResourceStream("FoliownServices.Tests.SG08BBS.Mot.Result.html");
+
+            var testResponse = new StreamReader(resourceStream).ReadToEnd();
+
+            var vehicleDetails = service.ParseResponse(testResponse);
+
+            var result = vehicleDetails.Result;
+
+            Assert.False(result.HasFailedMotLookup);
+            Assert.True(result.VRM == "SG08BBS");
+            Assert.True(result.Manufacturer == TestManufacturer);
+            Assert.True(result.MotTestResults.First().Advisories.Count == 1);
+            Assert.True(result.MotTestResults.Skip(4).First().Failures.Count == 3);
+            Assert.True(result.MotTestResults.Last().ExpiryDate.Year == 2012);
+
+        }
+
+        [Fact]
+        public void Can_Parse_Lookup_Failure()
+        {
+            var service = new CheckMotService();
+
+            var assembly = typeof(EnquiryServiceTests).GetTypeInfo().Assembly;
+            var resourceStream = assembly.GetManifestResourceStream("FoliownServices.Tests.NoMotFound.html");
+
+            var testResponse = new StreamReader(resourceStream).ReadToEnd();
+
+            var vehicleDetails = service.ParseResponse(testResponse);
+
+            var result = vehicleDetails.Result;
+
+            Assert.True(result.HasFailedMotLookup);
+        }
+
+        [Fact]
         public void Can_Parse_Valid_Car()
         {
             var service = new UkVehicleEnquiryService();

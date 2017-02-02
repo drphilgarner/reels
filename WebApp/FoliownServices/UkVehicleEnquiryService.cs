@@ -64,7 +64,6 @@ namespace FoliownServices
 
             vehicle.VRM = document.All.FirstOrDefault(t => t.ClassName == "registrationNumber").TextContent;
 
-            
 
             var spans = document.GetElementsByTagName("span");
 
@@ -84,20 +83,20 @@ namespace FoliownServices
 
             vehicle.FuelType =
                 spans.FirstOrDefault(t => t.TextContent.Trim() == FuelType).NextElementSibling.TextContent;
-            
+
             vehicle.ExportMarker =
                 spans.FirstOrDefault(t => t.TextContent.Trim() == ExportMarker).NextElementSibling.TextContent;
 
             vehicle.VehicleStatus =
                 spans.FirstOrDefault(t => t.TextContent.Trim() == VehicleStatus).NextElementSibling.TextContent;
-            
+
             vehicle.VehicleColour =
                 spans.FirstOrDefault(t => t.TextContent.Trim() == VehicleColour).NextElementSibling.TextContent;
 
             vehicle.TypeApproval =
                 spans.FirstOrDefault(t => t.TextContent.Trim() == TypeApproval).NextElementSibling.TextContent;
 
-            vehicle.WheelPlan = 
+            vehicle.WheelPlan =
                 spans.FirstOrDefault(t => t.TextContent.Trim() == Wheelplan).NextElementSibling.TextContent;
 
             vehicle.RevenueWeight =
@@ -108,7 +107,7 @@ namespace FoliownServices
             //due dates
 
             var paras = document.GetElementsByTagName("p");
-            
+
             var taxDueContent = paras.FirstOrDefault(t => t.TextContent.Contains(TaxDue))?.TextContent;
 
             if (taxDueContent != null)
@@ -126,7 +125,7 @@ namespace FoliownServices
             var motDueContent = paras.FirstOrDefault(t => t.TextContent.Contains(Expired))?.TextContent;
 
             motDueContent = motDueContent ?? paras.FirstOrDefault(t => t.TextContent.Contains(Expires))?.TextContent;
-            
+
 
             if (motDueContent != null)
             {
@@ -148,7 +147,5 @@ namespace FoliownServices
 
             return vehicle;
         }
-
-        
     }
 }

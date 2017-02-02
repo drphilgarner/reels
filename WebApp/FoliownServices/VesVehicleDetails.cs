@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace FoliownServices
 {
@@ -16,6 +18,8 @@ namespace FoliownServices
         public DateTimeOffset TaxDueDate { get; set; }
 
         public DateTimeOffset MotExpiryDate { get; set; }
+
+        public DateTimeOffset FirstUsedDate { get; set; }
 
         public string FirstRegisrationDate { get; set; }
 
@@ -39,5 +43,10 @@ namespace FoliownServices
 
         public string FuelType { get; set; }
         public bool HasFailedLookup { get; set; }
+
+        public bool HasFailedMotLookup { get; set; }
+
+
+        public List<MotTestResult> MotTestResults { get; set; }
     }
 }
