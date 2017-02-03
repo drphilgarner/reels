@@ -159,6 +159,22 @@ namespace FoliownServices.Tests
             Assert.True(result.HasFailedLookup);
         }
 
+        [Fact]
+        public void Can_Merge_Lookup_From_Both_Services()
+        {
+            var govt = new GovtVehicleLookupService(TestManufacturer, TestVrm);
+
+            var result = govt.GetVesAndMotDetails().Result;
+
+            Assert.True(result.Model == "CLS 320");
+            Assert.False(result.HasFailedMotLookup);
+            Assert.True(result.VRM == "SG08BBS");
+            Assert.True(result.Manufacturer == TestManufacturer);
+            Assert.True(result.MotTestResults.First().Advisories.Count == 1);
+            Assert.True(result.MotTestResults.Skip(4).First().Failures.Count == 3);
+            Assert.True(result.MotTestResults.Last().ExpiryDate.Year == 2012);
+        }
+
 
     }
 }

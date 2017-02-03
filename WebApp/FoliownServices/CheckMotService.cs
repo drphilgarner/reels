@@ -20,10 +20,6 @@ namespace FoliownServices
         private const string TestResult = "Test Result";
         private const string Odometer = "Odometer reading";
         private const string MotNumber = "MOT test number";
-        private const string AdvisoryNotice = "Advisory notice item(s)";
-        private const string FailureReasons = "Reason(s) for failure";
-
-
 
         public async Task<string> GetVrmDetails(string vrm, string manufacturer)
         {

@@ -7,4 +7,6 @@ namespace FoliownServices
         Task<string> GetVrmDetails(string vrm, string manufacturer);
         Task<VesVehicleDetails> ParseResponse(string response);
     }
+
+
 }

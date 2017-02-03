@@ -48,5 +48,7 @@ namespace FoliownServices
 
 
         public List<MotTestResult> MotTestResults { get; set; }
+
+        
     }
 }
