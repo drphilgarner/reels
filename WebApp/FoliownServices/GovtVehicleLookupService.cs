@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
-using AutoMapper;
 using Newtonsoft.Json;
 
 
@@ -18,8 +17,6 @@ namespace FoliownServices
         {
             _manufacturer = manufacturer;
             _vrm = vrm;
-
-            Mapper.Initialize(cfg => cfg.CreateMap<VesVehicleDetails, VesVehicleDetails>());
         }
 
         public async Task<VesVehicleDetails> GetVesAndMotDetails()

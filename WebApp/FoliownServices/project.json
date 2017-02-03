@@ -3,7 +3,6 @@
 
   "dependencies": {
     "AngleSharp": "0.9.9",
-    "AutoMapper": "5.2.0",
     "NETStandard.Library": "1.6.1",
     "Newtonsoft.Json": "9.0.1"
   },
