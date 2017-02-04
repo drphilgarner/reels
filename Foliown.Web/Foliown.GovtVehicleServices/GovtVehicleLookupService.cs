@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 
-namespace FoliownServices
+namespace Foliown.GovtVehicleServices
 {
     public class GovtVehicleLookupService
     {
@@ -22,7 +22,7 @@ namespace FoliownServices
         public async Task<VesVehicleDetails> GetVesAndMotDetails()
         {
             var vesService = new UkVehicleEnquiryService();
-            var motService = new CheckMotService();
+            var motService = new UkCheckMotService();
 
             var vrmHtmlResult = vesService.GetVrmDetails(_vrm, _manufacturer);
             var motHtmlResult = motService.GetVrmDetails(_vrm, _manufacturer);

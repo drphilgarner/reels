@@ -5,9 +5,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using AngleSharp.Parser.Html;
 
-namespace FoliownServices
+namespace Foliown.GovtVehicleServices
 {
-    public class CheckMotService : IEnquiryService
+    public class UkCheckMotService : IEnquiryService
     {
         private string _motServiceUrl = "https://www.check-mot.service.gov.uk";
         private const string VehicleMake = "Vehicle make";

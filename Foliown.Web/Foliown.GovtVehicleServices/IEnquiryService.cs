@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace FoliownServices
+namespace Foliown.GovtVehicleServices
 {
     public interface IEnquiryService
     {

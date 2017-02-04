@@ -3,14 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FoliownServices", "FoliownServices\FoliownServices.xproj", "{C1242C34-9E0A-4441-A82D-9533F140771B}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Foliown.GovtVehicleServices", "Foliown.GovtVehicleServices\Foliown.GovtVehicleServices.xproj", "{C1242C34-9E0A-4441-A82D-9533F140771B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6C426B1A-36A9-4428-8FC4-FF21E4BDA269}"
-	ProjectSection(SolutionItems) = preProject
-		..\global.json = ..\global.json
-	EndProjectSection
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FoliownServices.Tests", "..\FoliownServices.Tests\FoliownServices.Tests.xproj", "{5276917A-9605-4555-98A5-4166BCE6A786}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Foliown.GovtVehicleServices.Tests", "Foliown.GovtVehicleServices.Tests\Foliown.GovtVehicleServices.Tests.xproj", "{5276917A-9605-4555-98A5-4166BCE6A786}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using AngleSharp.Parser.Html;
 
-namespace FoliownServices
+namespace Foliown.GovtVehicleServices
 {
     public class UkVehicleEnquiryService : IEnquiryService
     {

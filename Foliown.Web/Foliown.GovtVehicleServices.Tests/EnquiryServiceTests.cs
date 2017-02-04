@@ -6,12 +6,18 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace FoliownServices.Tests
+namespace Foliown.GovtVehicleServices.Tests
 {
     public class EnquiryServiceTests
     {
         private const string TestVrm = "sg08 bbs";
         private const string TestManufacturer = "MERCEDES";
+        private string _namespace;
+
+        public EnquiryServiceTests()
+        {
+            _namespace = typeof(EnquiryServiceTests).Namespace;
+        }
 
         [Fact(Skip="Don't want to hit API all the time")]
         public void Can_Get_Enquiry_Details()
@@ -19,7 +25,7 @@ namespace FoliownServices.Tests
             var service = new UkVehicleEnquiryService();
 
             var mercDetails = service.GetVrmDetails(TestVrm, TestManufacturer);
-            
+
             var logPath = Path.GetTempFileName();
             using (var writer = File.CreateText(logPath))
             {
@@ -41,7 +47,7 @@ namespace FoliownServices.Tests
             var service = new UkVehicleEnquiryService();
 
             var assembly = typeof(EnquiryServiceTests).GetTypeInfo().Assembly;
-            var resourceStream = assembly.GetManifestResourceStream("FoliownServices.Tests.m40saxResult.html");
+            var resourceStream = assembly.GetManifestResourceStream($"{_namespace}.m40saxResult.html");
 
             var testResponse = new StreamReader(resourceStream).ReadToEnd();
             
@@ -70,10 +76,10 @@ namespace FoliownServices.Tests
         [Fact]
         public void Can_Parse_Mot_History()
         {
-            var service = new CheckMotService();
+            var service = new UkCheckMotService();
 
             var assembly = typeof(EnquiryServiceTests).GetTypeInfo().Assembly;
-            var resourceStream = assembly.GetManifestResourceStream("FoliownServices.Tests.SG08BBS.Mot.Result.html");
+            var resourceStream = assembly.GetManifestResourceStream($"{_namespace}.SG08BBS.Mot.Result.html");
 
             var testResponse = new StreamReader(resourceStream).ReadToEnd();
 
@@ -93,10 +99,10 @@ namespace FoliownServices.Tests
         [Fact]
         public void Can_Parse_Lookup_Failure()
         {
-            var service = new CheckMotService();
+            var service = new UkCheckMotService();
 
             var assembly = typeof(EnquiryServiceTests).GetTypeInfo().Assembly;
-            var resourceStream = assembly.GetManifestResourceStream("FoliownServices.Tests.NoMotFound.html");
+            var resourceStream = assembly.GetManifestResourceStream($"{_namespace}.NoMotFound.html");
 
             var testResponse = new StreamReader(resourceStream).ReadToEnd();
 
@@ -113,7 +119,7 @@ namespace FoliownServices.Tests
             var service = new UkVehicleEnquiryService();
 
             var assembly = typeof(EnquiryServiceTests).GetTypeInfo().Assembly;
-            var resourceStream = assembly.GetManifestResourceStream("FoliownServices.Tests.SG08BBSResult.html");
+            var resourceStream = assembly.GetManifestResourceStream($"{_namespace}.SG08BBSResult.html");
 
             var testResponse = new StreamReader(resourceStream).ReadToEnd();
 
@@ -147,7 +153,7 @@ namespace FoliownServices.Tests
             var service = new UkVehicleEnquiryService();
 
             var assembly = typeof(EnquiryServiceTests).GetTypeInfo().Assembly;
-            var resourceStream = assembly.GetManifestResourceStream("FoliownServices.Tests.SG08BBSResult.html");
+            var resourceStream = assembly.GetManifestResourceStream($"{_namespace}.SG08BBSResult.html");
 
             var testResponse = new StreamReader(resourceStream).ReadToEnd();
 

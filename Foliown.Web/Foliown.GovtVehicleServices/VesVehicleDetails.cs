@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace FoliownServices
+namespace Foliown.GovtVehicleServices
 {
     public class VesVehicleDetails
     {
