@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Foliown.GovtVehicleServices
+namespace Foliown.Core
 {
     public class MotTestResult
     {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using AngleSharp.Parser.Html;
+using Foliown.Core;
 
 namespace Foliown.GovtVehicleServices
 {

@@ -12,7 +12,7 @@ namespace Foliown.GovtVehicleServices.Tests
     {
         private const string TestVrm = "sg08 bbs";
         private const string TestManufacturer = "MERCEDES";
-        private string _namespace;
+        private readonly string _namespace;
 
         public EnquiryServiceTests()
         {
@@ -34,11 +34,6 @@ namespace Foliown.GovtVehicleServices.Tests
                 Console.WriteLine($"Written to {logPath}");
             }
 
-        }
-
-        public void Can_Get_Mot_Details()
-        {
-            
         }
 
         [Fact]

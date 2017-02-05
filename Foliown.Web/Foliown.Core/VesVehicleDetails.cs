@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
-namespace Foliown.GovtVehicleServices
+namespace Foliown.Core
 {
     public class VesVehicleDetails
     {

@@ -7,6 +7,10 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Foliown.GovtVehicleServices
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Foliown.GovtVehicleServices.Tests", "Foliown.GovtVehicleServices.Tests\Foliown.GovtVehicleServices.Tests.xproj", "{5276917A-9605-4555-98A5-4166BCE6A786}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Foliown.Web.Services", "Foliown.Web.Services\Foliown.Web.Services.xproj", "{B8EB5E95-9180-403D-BD9E-B8F252499604}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Foliown.Core", "Foliown.Core\Foliown.Core.xproj", "{4C85DAF5-50D6-4DD7-BF53-F956276776AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{5276917A-9605-4555-98A5-4166BCE6A786}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5276917A-9605-4555-98A5-4166BCE6A786}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5276917A-9605-4555-98A5-4166BCE6A786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8EB5E95-9180-403D-BD9E-B8F252499604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8EB5E95-9180-403D-BD9E-B8F252499604}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8EB5E95-9180-403D-BD9E-B8F252499604}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8EB5E95-9180-403D-BD9E-B8F252499604}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C85DAF5-50D6-4DD7-BF53-F956276776AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C85DAF5-50D6-4DD7-BF53-F956276776AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C85DAF5-50D6-4DD7-BF53-F956276776AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C85DAF5-50D6-4DD7-BF53-F956276776AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

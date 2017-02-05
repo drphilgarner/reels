@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using Foliown.Core;
 
 
 namespace Foliown.GovtVehicleServices
@@ -42,18 +40,7 @@ namespace Foliown.GovtVehicleServices
             return res;
         }
 
-        public List<string> GetSupportedManufacturers()
-        {
-            var assembly = typeof(GovtVehicleLookupService).GetTypeInfo().Assembly;
-            var resourceStream = assembly.GetManifestResourceStream("manufacturers.json");
-
-            var manufacturersJson = new StreamReader(resourceStream).ReadToEnd();
-
-            var formHints = JsonConvert.DeserializeObject<FormHints>(manufacturersJson);
-
-            return formHints.Manufacturers;
-
-        }
+        
     }
 
     public class FormHints

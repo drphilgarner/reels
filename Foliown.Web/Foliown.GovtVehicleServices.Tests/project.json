@@ -4,6 +4,7 @@
   "dependencies": {
     "xunit": "2.2.0-beta2-build3300",
     "Foliown.GovtVehicleServices": "1.0.0-*",
+    "Foliown.Core": "1.0.0-*",
     "dotnet-test-xunit": "2.2.0-preview2-build1029"
   },
 
