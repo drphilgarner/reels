@@ -11,14 +11,14 @@ namespace Foliown.Core
 
         public string VRM { get; set; }
 
-        public DateTimeOffset QueryDateTime { get; set; }
+        public DateTimeOffset? QueryDateTime { get; set; }
         
 
-        public DateTimeOffset TaxDueDate { get; set; }
+        public DateTimeOffset? TaxDueDate { get; set; }
 
-        public DateTimeOffset MotExpiryDate { get; set; }
+        public DateTimeOffset? MotExpiryDate { get; set; }
 
-        public DateTimeOffset FirstUsedDate { get; set; }
+        public DateTimeOffset? FirstUsedDate { get; set; }
 
         public string FirstRegisrationDate { get; set; }
 
