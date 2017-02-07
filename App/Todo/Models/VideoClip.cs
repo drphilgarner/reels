@@ -18,5 +18,22 @@ namespace Todo
         {
             return Path ?? "undefined";
         }
+
+        public ClipType ClipType { get; set; }
+    }
+
+
+
+    public enum ClipType
+    {
+        Walkround,
+        WheelAndTyre,
+        FrontSeats,
+        RearSeats,
+        EngineBay,
+        FrontEnd,
+        RearEnd,
+        Dashboard,
+        Trunk
     }
 }

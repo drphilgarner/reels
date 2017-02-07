@@ -5,6 +5,8 @@ using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using Xamarin.Forms;
 using Todo.Data;
+using Todo.Models;
+using Todo.Views;
 
 namespace Todo
 {
@@ -126,5 +128,10 @@ namespace Todo
         }
 
 
-    }
+	    private async void OnCaptureFlowStarted(object sender, EventArgs e)
+	    {
+	        await Navigation.PushAsync(new CaptureFlowScrollPage());
+
+	    }
+	}
 }

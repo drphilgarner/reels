@@ -22,9 +22,7 @@ namespace Todo
 	public class MainActivity :
 	global::Xamarin.Forms.Platform.Android.FormsApplicationActivity // superclass new in 1.3
 	{
-        MediaRecorder _recorder;
-
-        private readonly List<string> _videoFileList;
+	    private readonly List<string> _videoFileList;
         private readonly List<string> _fileGuids;
 
         private string _capturedVideoPath = string.Empty;
@@ -67,6 +65,9 @@ namespace Todo
 
                 vidIntent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile((videoFile)));
 
+                //this controls how long to run the video for
+                vidIntent.PutExtra(MediaStore.ExtraDurationLimit, 5);
+                
                 _capturedVideoPath = videoFile.Path;
 
                 _videoFileList.Add(vidFileName);

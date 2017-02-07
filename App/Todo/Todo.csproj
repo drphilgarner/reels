@@ -32,9 +32,11 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Models\VehicleCapture.cs" />
     <Compile Include="Models\VideoClip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App.cs" />
+    <Compile Include="Views\CaptureFlowScrollPage.cs" />
     <Compile Include="Views\TodoListPage.xaml.cs">
       <DependentUpon>TodoListPage.xaml</DependentUpon>
     </Compile>

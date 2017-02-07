@@ -15,6 +15,12 @@
             </ToolbarItem.Icon>
         </ToolbarItem>
 
+        <ToolbarItem Text="+" x:Name="BtnStartCaptureFlow" Clicked="OnCaptureFlowStarted" >
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource" Android="check.png" />
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+
     </ContentPage.ToolbarItems>
 	<ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected">
 		<ListView.ItemTemplate>
