@@ -11,6 +11,10 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Foliown.Web.Services", "Fol
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Foliown.Core", "Foliown.Core\Foliown.Core.xproj", "{4C85DAF5-50D6-4DD7-BF53-F956276776AE}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Foliown.Web.Services.Tests", "Foliown.Web.Services.Tests\Foliown.Web.Services.Tests.xproj", "{43216837-BB92-4396-8183-5CDA65108ACB}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Foliown.SearchServices", "Foliown.SearchServices\Foliown.SearchServices.xproj", "{744C2656-B711-485E-A0AD-2C7ED27B46C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{4C85DAF5-50D6-4DD7-BF53-F956276776AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C85DAF5-50D6-4DD7-BF53-F956276776AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C85DAF5-50D6-4DD7-BF53-F956276776AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43216837-BB92-4396-8183-5CDA65108ACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43216837-BB92-4396-8183-5CDA65108ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43216837-BB92-4396-8183-5CDA65108ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43216837-BB92-4396-8183-5CDA65108ACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{744C2656-B711-485E-A0AD-2C7ED27B46C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{744C2656-B711-485E-A0AD-2C7ED27B46C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{744C2656-B711-485E-A0AD-2C7ED27B46C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{744C2656-B711-485E-A0AD-2C7ED27B46C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

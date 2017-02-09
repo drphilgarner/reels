@@ -10,6 +10,8 @@ namespace Todo.Views
 {
     public class CaptureFlowScrollPage : ContentPage
     {
+        private StackLayout _stackLayout;
+
         public CaptureFlowScrollPage()
         {
 
@@ -24,30 +26,33 @@ namespace Todo.Views
                 TextColor = Color.White,
                 BorderColor = Color.Gray,
                 BorderRadius = 2,
-                HorizontalOptions = LayoutOptions.End,
+                BorderWidth = 1,
+                HorizontalOptions = LayoutOptions.Start,
                 VerticalOptions = LayoutOptions.Start,
                 Margin = new Thickness (5.0d)
                 
             };
             lookupButton.Clicked += LookupButton_Clicked;
 
+            _stackLayout = new StackLayout
+            {
+                Children =
+                {
+                    new Entry
+                    {
+                        Placeholder = "Your number plate",
+                        VerticalOptions = LayoutOptions.Start,
+                        BindingContext = vehicleCapture.VRM,
+                        FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Entry))
+                    },
+                    lookupButton
+                }
+            };
             this.Content = new ScrollView
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
 
-                Content = new StackLayout
-                {
-                    Children =
-                    {
-                        new Entry
-                        {
-                            Placeholder = "Your number plate",
-                            VerticalOptions = LayoutOptions.Start,
-                            BindingContext = vehicleCapture.VRM
-                        },
-                        lookupButton
-                    }
-                }
+                Content = _stackLayout
 
 
             };

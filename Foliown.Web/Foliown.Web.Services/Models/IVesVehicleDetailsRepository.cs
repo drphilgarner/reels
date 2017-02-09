@@ -17,6 +17,11 @@ namespace Foliown.Web.Services.Models
         IEnumerable<string> GetAll();
     }
 
+    public interface IImageSearchRepository
+    {
+        void GetImage(string searchQuery);
+    }
+
     public class ManufacturersRepository : IManufacturersRepository {
         public IEnumerable<string> GetAll()
         {
@@ -35,6 +40,4 @@ namespace Foliown.Web.Services.Models
             return vehicleLookupService.GetVesAndMotDetails().Result;
         }
     }
-
-    
 }
