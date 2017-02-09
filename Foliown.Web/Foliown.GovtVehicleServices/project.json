@@ -4,6 +4,7 @@
   "dependencies": {
     "AngleSharp": "0.9.9",
     "Foliown.Core": "1.0.0-*",
+    "Foliown.SearchServices": "1.0.0-*",
     "NETStandard.Library": "1.6.1",
     "Newtonsoft.Json": "9.0.1"
   },

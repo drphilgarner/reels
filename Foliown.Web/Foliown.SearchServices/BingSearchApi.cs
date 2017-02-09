@@ -12,7 +12,7 @@ namespace Foliown.SearchServices
 {
     public class BingSearchApi
     {
-        public async Task<string> GetImage(string searchQuery)
+        public async Task<string> GetImageThumbnail(string searchQuery)
         {
 
             var client = new HttpClient();

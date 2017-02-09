@@ -42,6 +42,7 @@ namespace Foliown.Web.Services
 
             services.AddSingleton<IVesVehicleDetailsRepository, VehicleDetailsRepository>();
             services.AddSingleton<IManufacturersRepository, ManufacturersRepository>();
+            services.AddSingleton<IImageSearchRepository, ImageSearchRepository>();
 
         }
 

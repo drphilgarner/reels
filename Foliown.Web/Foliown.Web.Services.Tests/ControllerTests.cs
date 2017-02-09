@@ -15,7 +15,7 @@ namespace Foliown.Web.Services.Tests
         {
             var bingApi = new BingSearchApi();
 
-            var response = bingApi.GetImage("2008 Mercedes CLS 320 CDI");
+            var response = bingApi.GetImageThumbnail("2008 Mercedes CLS 320 CDI");
 
             Uri uriResult;
             bool result = Uri.TryCreate(response.Result, UriKind.Absolute, out uriResult);
