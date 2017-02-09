@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using Todo.Models;
+using Todo.ServiceClient;
 using Xamarin.Forms;
 
 namespace Todo.Views
@@ -11,17 +12,45 @@ namespace Todo.Views
     public class CaptureFlowScrollPage : ContentPage
     {
         private StackLayout _stackLayout;
+        private VehicleCapture _vehicleCapture;
+        private RestVehicleServices _restVehicleServices;
+
+        public List<string> Manufacturers { get; set; }
+        private Picker _manufacturerPicker;
+
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            Manufacturers = await _restVehicleServices.GetManufacturers();
+
+            foreach (var m in Manufacturers)
+            {
+                _manufacturerPicker.Items.Add(m);
+            }
+        }
 
         public CaptureFlowScrollPage()
         {
+            Manufacturers = new List<string>();
 
+            _vehicleCapture = new VehicleCapture();
 
-            var vehicleCapture = new VehicleCapture();
+            _restVehicleServices = new RestVehicleServices();
+
+            _manufacturerPicker = new Picker
+            {
+                VerticalOptions = LayoutOptions.Start,
+                Title = Strings.Manufactuer
+
+            };
+            
 
 
             var lookupButton = new Button
             {
-                Text = "LOOKUP",
+                Text = Strings.CaptureFlowScrollPage_CaptureFlowScrollPage_LOOKUP,
                 BackgroundColor = Color.FromHex("#2196F3"),
                 TextColor = Color.White,
                 BorderColor = Color.Gray,
@@ -38,11 +67,12 @@ namespace Todo.Views
             {
                 Children =
                 {
+                    _manufacturerPicker,   
                     new Entry
                     {
-                        Placeholder = "Your number plate",
+                        Placeholder = Strings.CaptureFlowScrollPage_CaptureFlowScrollPage_Your_number_plate,
                         VerticalOptions = LayoutOptions.Start,
-                        BindingContext = vehicleCapture.VRM,
+                        BindingContext = _vehicleCapture.VRM,
                         FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Entry))
                     },
                     lookupButton
@@ -62,8 +92,12 @@ namespace Todo.Views
 
         private void LookupButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (_vehicleCapture.VRM != String.Empty)
+            {
+                new RestVehicleServices().LookupVRM(_vehicleCapture.VRM);
+            }
         }
+
 
         public Page BuildForm()
         {

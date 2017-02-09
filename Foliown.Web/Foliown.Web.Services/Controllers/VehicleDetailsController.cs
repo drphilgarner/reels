@@ -22,6 +22,12 @@ namespace Foliown.Web.Services.Controllers
             ManufacturerRepo = manufacturerRepo;
         }
 
+        [HttpGet("Manufacturers", Name = "GetManufacturers")]
+        public IActionResult Manufacturers()
+        {
+            return new ObjectResult(ManufacturerRepo.GetAll());
+        }
+
         [HttpPost]
         public IActionResult VehicleDetails([FromBody] dynamic data)
         {
