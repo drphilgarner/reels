@@ -62,6 +62,24 @@ namespace Todo {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Images.
+        /// </summary>
+        internal static string RestVehicleServices_RestVehicleServices_Images {
+            get {
+                return ResourceManager.GetString("RestVehicleServices_RestVehicleServices_Images", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://foliownwebservices20170204102510.azurewebsites.net.
+        /// </summary>
+        internal static string VehicleServices_hostUrl {
+            get {
+                return ResourceManager.GetString("VehicleServices_hostUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to http://foliownwebservices20170204102510.azurewebsites.net/api.
         /// </summary>
         internal static string VehicleServices_LookupVRM_API {

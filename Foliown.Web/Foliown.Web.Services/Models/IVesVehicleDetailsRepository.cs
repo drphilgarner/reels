@@ -14,6 +14,8 @@ namespace Foliown.Web.Services.Models
     public interface IManufacturersRepository
     {
         IEnumerable<string> GetAll();
+
+        IEnumerable<string> GetMajorManufacturers();
     }
 
     public interface IImageSearchRepository

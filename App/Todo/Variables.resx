@@ -110,4 +110,10 @@
   <data name="VehicleServices_VehicleServices_Manufacturers" xml:space="preserve">
     <value>Manufacturers</value>
   </data>
+  <data name="VehicleServices_hostUrl" xml:space="preserve">
+    <value>http://foliownwebservices20170204102510.azurewebsites.net</value>
+  </data>
+  <data name="RestVehicleServices_RestVehicleServices_Images" xml:space="preserve">
+    <value>Images</value>
+  </data>
 </root>

@@ -25,7 +25,7 @@ namespace Foliown.Web.Services
                 // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
                 builder.AddApplicationInsightsSettings(developerMode: true);
             }
-
+            
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
         }
@@ -53,8 +53,9 @@ namespace Foliown.Web.Services
             loggerFactory.AddDebug();
 
             app.UseApplicationInsightsRequestTelemetry();
-
+            app.UseStaticFiles();
             app.UseApplicationInsightsExceptionTelemetry();
+            
 
             app.UseMvc();
         }

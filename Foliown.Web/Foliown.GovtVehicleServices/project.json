@@ -10,7 +10,7 @@
   },
 
   "buildOptions": {
-    "embed": [ "manufacturers.json" ]
+    "embed": [ "manufacturers.json", "major_manufacturers.json" ]
   },
 
   "frameworks": {

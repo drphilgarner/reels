@@ -42,8 +42,8 @@ namespace Todo.Views
             _manufacturerPicker = new Picker
             {
                 VerticalOptions = LayoutOptions.Start,
-                Title = Strings.Manufactuer
-
+                Title = Strings.Manufactuer,
+                HorizontalOptions = LayoutOptions.Center
             };
             
 
@@ -63,17 +63,35 @@ namespace Todo.Views
             };
             lookupButton.Clicked += LookupButton_Clicked;
 
+            var chooseManufacturerButton = new Button
+            {
+                Text = Strings.CaptureFlowScrollPage_CaptureFlowScrollPage_LOOKUP,
+                BackgroundColor = Color.FromHex("#2196F3"),
+                TextColor = Color.White,
+                BorderColor = Color.Gray,
+                BorderRadius = 2,
+                BorderWidth = 1,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Start,
+                Margin = new Thickness(5.0d)
+
+            };
+
+            chooseManufacturerButton.Clicked += ChooseManufacturerButton_Clicked;
+
             _stackLayout = new StackLayout
             {
                 Children =
                 {
-                    _manufacturerPicker,   
+                    _manufacturerPicker,  
+                    chooseManufacturerButton, 
                     new Entry
                     {
                         Placeholder = Strings.CaptureFlowScrollPage_CaptureFlowScrollPage_Your_number_plate,
                         VerticalOptions = LayoutOptions.Start,
                         BindingContext = _vehicleCapture.VRM,
-                        FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Entry))
+                        FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Entry)),
+                        HorizontalTextAlignment = TextAlignment.Center
                     },
                     lookupButton
                 }
@@ -88,6 +106,12 @@ namespace Todo.Views
             };
 
         
+        }
+
+        private async void ChooseManufacturerButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ManufacturersListView());
+
         }
 
         private void LookupButton_Clicked(object sender, EventArgs e)

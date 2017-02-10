@@ -17,7 +17,8 @@
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
     "Foliown.Core": "1.0.0-*",
-    "Foliown.GovtVehicleServices": "1.0.0-*"
+    "Foliown.GovtVehicleServices": "1.0.0-*",
+    "Microsoft.AspNetCore.StaticFiles": "1.1.0"
   },
 
   "tools": {

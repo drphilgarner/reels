@@ -28,6 +28,12 @@ namespace Foliown.Web.Services.Controllers
             return new ObjectResult(ManufacturerRepo.GetAll());
         }
 
+        [HttpGet("MajorManufacturers", Name = "GetMajorManufacturers")]
+        public IActionResult MajorManufacturers()
+        {
+            return new ObjectResult(ManufacturerRepo.GetMajorManufacturers());
+        }
+
         [HttpPost]
         public IActionResult VehicleDetails([FromBody] dynamic data)
         {

@@ -8,5 +8,10 @@ namespace Foliown.Web.Services.Models
         {
             return new FormHelpers().GetSupportedManufacturers();
         }
+
+        public IEnumerable<string> GetMajorManufacturers()
+        {
+            return new FormHelpers().GetMajorManufacturers();
+        }
     }
 }

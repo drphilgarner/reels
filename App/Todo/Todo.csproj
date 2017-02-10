@@ -32,6 +32,7 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Models\Manufacturer.cs" />
     <Compile Include="Models\VehicleCapture.cs" />
     <Compile Include="Models\VideoClip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -48,6 +49,7 @@
       <DependentUpon>Variables.resx</DependentUpon>
     </Compile>
     <Compile Include="Views\CaptureFlowScrollPage.cs" />
+    <Compile Include="Views\ManufacturersListView.cs" />
     <Compile Include="Views\TodoListPage.xaml.cs">
       <DependentUpon>TodoListPage.xaml</DependentUpon>
     </Compile>
@@ -124,6 +126,7 @@
     <EmbeddedResource Include="Variables.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Variables.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TodoItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
