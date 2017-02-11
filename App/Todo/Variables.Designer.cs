@@ -62,20 +62,20 @@ namespace Todo {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #2196F3.
+        /// </summary>
+        internal static string ButtonColourHex {
+            get {
+                return ResourceManager.GetString("ButtonColourHex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Images.
         /// </summary>
         internal static string RestVehicleServices_RestVehicleServices_Images {
             get {
                 return ResourceManager.GetString("RestVehicleServices_RestVehicleServices_Images", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to #2196F3.
-        /// </summary>
-        internal static string StandardButtonColourHex {
-            get {
-                return ResourceManager.GetString("StandardButtonColourHex", resourceCulture);
             }
         }
         

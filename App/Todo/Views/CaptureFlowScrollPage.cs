@@ -61,7 +61,7 @@ namespace Todo.Views
             _lookupButton = new Button
             {
                 Text = Strings.CaptureFlowScrollPage_CaptureFlowScrollPage_LOOKUP,
-                BackgroundColor = Color.FromHex(Variables.StandardButtonColourHex),
+                BackgroundColor = Color.FromHex(Variables.ButtonColourHex),
                 TextColor = Color.White,
                 BorderColor = Color.Gray,
                 BorderRadius = 2,
@@ -79,7 +79,7 @@ namespace Todo.Views
             var chooseManufacturerButton = new Button
             {
                 Text = Strings.CaptureFlowScrollPage_CaptureFlowScrollPage_CHOOSE_MAKE,
-                BackgroundColor = Color.FromHex(Variables.StandardButtonColourHex),
+                BackgroundColor = Color.FromHex(Variables.ButtonColourHex),
                 TextColor = Color.White,
                 BorderColor = Color.Gray,
                 BorderRadius = 2,
