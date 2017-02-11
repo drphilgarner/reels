@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json.Linq;
 using Todo.Models;
 using Todo.ServiceClient;
 using Xamarin.Forms;
@@ -21,6 +22,8 @@ namespace Todo.Views
         private Entry _vrmEntry;
         private Button _lookupButton;
         private Regex _vrmRegex;
+        private Image _thumbnailImage;
+        private Label _lookupResultLabel;
 
         public string SelectedManufacturer { get; set; }
 
@@ -156,6 +159,7 @@ namespace Todo.Views
 
             
             var vrmNoSpace = _vrmEntry.Text.Replace(" ", "");
+            _vehicleCapture.VRM = vrmNoSpace;
 
             //enable the lookup if the numberplate is valid
             if (SelectedManufacturer != null )
@@ -174,11 +178,41 @@ namespace Todo.Views
             
         }
 
-        private void LookupButton_Clicked(object sender, EventArgs e)
+        private async void LookupButton_Clicked(object sender, EventArgs e)
         {
             if (_vehicleCapture.VRM != String.Empty)
             {
-                new RestVehicleServices().LookupVRM(_vehicleCapture.VRM);
+                var restVehicleServices = new RestVehicleServices();
+                JObject result = await restVehicleServices.LookupVrmAsync(_vehicleCapture.VRM, SelectedManufacturer);
+
+                if (result != null)
+                {
+                    var thumbnailString = await restVehicleServices.GetVehicleThumbnail(SelectedManufacturer,
+                        result["model"].ToString(), result["vehicleColour"].ToString(), result["yearOfManufactureDate"].ToString());
+
+                    if (_thumbnailImage != null)
+                    {
+                        _stackLayout.Children.Remove(_thumbnailImage);
+                        _stackLayout.Children.Remove(_lookupResultLabel);
+                    }
+
+                    _lookupResultLabel = new Label
+                    {
+                        Text = $"{result["yearOfManufactureDate"]} {result["model"]}",
+                        HorizontalTextAlignment = TextAlignment.Start,
+                        HorizontalOptions = LayoutOptions.Start
+                    };
+
+                    _thumbnailImage = new Image
+                    {
+                        Source = ImageSource.FromUri(new Uri(thumbnailString)),
+                        Aspect = Aspect.AspectFit,
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        VerticalOptions = LayoutOptions.FillAndExpand
+                    };
+                    _stackLayout.Children.Add(_lookupResultLabel);
+                    _stackLayout.Children.Add(_thumbnailImage);
+                }
             }
         }
 
