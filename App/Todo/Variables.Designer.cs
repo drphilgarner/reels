@@ -73,9 +73,9 @@ namespace Todo {
         /// <summary>
         ///   Looks up a localized string similar to #2196F3.
         /// </summary>
-        internal static string StandardButtonColourHex {
+        internal static string StandardBtnColourHex {
             get {
-                return ResourceManager.GetString("StandardButtonColourHex", resourceCulture);
+                return ResourceManager.GetString("StandardBtnColourHex", resourceCulture);
             }
         }
         

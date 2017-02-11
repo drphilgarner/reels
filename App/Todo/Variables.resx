@@ -116,4 +116,7 @@
   <data name="RestVehicleServices_RestVehicleServices_Images" xml:space="preserve">
     <value>Images</value>
   </data>
+  <data name="StandardBtnColourHex" xml:space="preserve">
+    <value>#2196F3</value>
+  </data>
 </root>
