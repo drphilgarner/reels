@@ -71,6 +71,15 @@ namespace Todo {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #2196F3.
+        /// </summary>
+        internal static string StandardButtonColourHex {
+            get {
+                return ResourceManager.GetString("StandardButtonColourHex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to http://foliownwebservices20170204102510.azurewebsites.net.
         /// </summary>
         internal static string VehicleServices_hostUrl {

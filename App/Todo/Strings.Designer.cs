@@ -62,6 +62,15 @@ namespace Todo {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CHOOSE MAKE.
+        /// </summary>
+        internal static string CaptureFlowScrollPage_CaptureFlowScrollPage_CHOOSE_MAKE {
+            get {
+                return ResourceManager.GetString("CaptureFlowScrollPage_CaptureFlowScrollPage_CHOOSE_MAKE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LOOKUP.
         /// </summary>
         internal static string CaptureFlowScrollPage_CaptureFlowScrollPage_LOOKUP {
@@ -85,6 +94,15 @@ namespace Todo {
         internal static string Manufactuer {
             get {
                 return ResourceManager.GetString("Manufactuer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (?&lt;Current&gt;^[A-Z]{2}[0-9]{2}[A-Z]{3}$)|(?&lt;Prefix&gt;^[A-Z][0-9]{1,3}[A-Z]{3}$)|(?&lt;Suffix&gt;^[A-Z]{3}[0-9]{1,3}[A-Z]$)|(?&lt;DatelessLongNumberPrefix&gt;^[0-9]{1,4}[A-Z]{1,2}$)|(?&lt;DatelessShortNumberPrefix&gt;^[0-9]{1,3}[A-Z]{1,3}$)|(?&lt;DatelessLongNumberSuffix&gt;^[A-Z]{1,2}[0-9]{1,4}$)|(?&lt;DatelessShortNumberSufix&gt;^[A-Z]{1,3}[0-9]{1,3}$).
+        /// </summary>
+        internal static string VrmEntry_Regex {
+            get {
+                return ResourceManager.GetString("VrmEntry_Regex", resourceCulture);
             }
         }
     }
