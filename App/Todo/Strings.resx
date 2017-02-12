@@ -123,13 +123,16 @@
   <data name="CaptureFlowScrollPage_CaptureFlowScrollPage_Your_number_plate" xml:space="preserve">
     <value>Vehicle Reg</value>
   </data>
-  <data name="Manufactuer" xml:space="preserve">
-    <value>Manufactuer</value>
+  <data name="Manufacturer" xml:space="preserve">
+    <value>Make</value>
   </data>
   <data name="CaptureFlowScrollPage_CaptureFlowScrollPage_CHOOSE_MAKE" xml:space="preserve">
     <value>CHOOSE MAKE</value>
   </data>
   <data name="VrmEntry_Regex" xml:space="preserve">
     <value>(?&lt;Current&gt;^[A-Z]{2}[0-9]{2}[A-Z]{3}$)|(?&lt;Prefix&gt;^[A-Z][0-9]{1,3}[A-Z]{3}$)|(?&lt;Suffix&gt;^[A-Z]{3}[0-9]{1,3}[A-Z]$)|(?&lt;DatelessLongNumberPrefix&gt;^[0-9]{1,4}[A-Z]{1,2}$)|(?&lt;DatelessShortNumberPrefix&gt;^[0-9]{1,3}[A-Z]{1,3}$)|(?&lt;DatelessLongNumberSuffix&gt;^[A-Z]{1,2}[0-9]{1,4}$)|(?&lt;DatelessShortNumberSufix&gt;^[A-Z]{1,3}[0-9]{1,3}$)</value>
+  </data>
+  <data name="VrmLookupDetailsPage_VrmLookupDetailsPage_MODEL" xml:space="preserve">
+    <value>MODEL</value>
   </data>
 </root>

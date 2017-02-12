@@ -48,7 +48,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Variables.resx</DependentUpon>
     </Compile>
-    <Compile Include="Views\CaptureFlowScrollPage.cs" />
+    <Compile Include="Views\VrmLookupDetailsPage.cs" />
     <Compile Include="Views\ManufacturersListView.cs" />
     <Compile Include="Views\TodoListPage.xaml.cs">
       <DependentUpon>TodoListPage.xaml</DependentUpon>

@@ -11,13 +11,13 @@ namespace Todo.Views
 {
     public class ManufacturersListView : ContentPage
     {
-        private readonly CaptureFlowScrollPage _senderPage;
+        private readonly VrmLookupDetailsPage _senderPage;
 
         private readonly RestVehicleServices _restVehicleServices;
         private ListView _listView;
         
 
-        public ManufacturersListView(CaptureFlowScrollPage senderPage)
+        public ManufacturersListView(VrmLookupDetailsPage senderPage)
         {
             _senderPage = senderPage;
             _restVehicleServices = new RestVehicleServices();
@@ -73,9 +73,8 @@ namespace Todo.Views
         private async void _listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
 
-            MessagingCenter.Send(_senderPage, "SelectedManufacturer", ((Manufacturer)_listView.SelectedItem).Name);
-
-
+            MessagingCenter.Send(_senderPage, "SelectedManufacturer", ((Manufacturer)_listView.SelectedItem));
+            
             await Navigation.PopAsync();
         }
 

@@ -89,11 +89,11 @@ namespace Todo {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manufactuer.
+        ///   Looks up a localized string similar to Make.
         /// </summary>
-        internal static string Manufactuer {
+        internal static string Manufacturer {
             get {
-                return ResourceManager.GetString("Manufactuer", resourceCulture);
+                return ResourceManager.GetString("Manufacturer", resourceCulture);
             }
         }
         
@@ -103,6 +103,15 @@ namespace Todo {
         internal static string VrmEntry_Regex {
             get {
                 return ResourceManager.GetString("VrmEntry_Regex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MODEL.
+        /// </summary>
+        internal static string VrmLookupDetailsPage_VrmLookupDetailsPage_MODEL {
+            get {
+                return ResourceManager.GetString("VrmLookupDetailsPage_VrmLookupDetailsPage_MODEL", resourceCulture);
             }
         }
     }

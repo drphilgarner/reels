@@ -130,7 +130,7 @@ namespace Todo
 
 	    private async void OnCaptureFlowStarted(object sender, EventArgs e)
 	    {
-	        await Navigation.PushAsync(new CaptureFlowScrollPage());
+	        await Navigation.PushAsync(new VrmLookupDetailsPage());
 
 	    }
 	}
