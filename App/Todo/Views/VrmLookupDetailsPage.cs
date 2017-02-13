@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using Todo.Models;
 using Todo.ServiceClient;
 using Xamarin.Forms;
+using Todo.ViewModels;
 
 namespace Todo.Views
 {
@@ -39,6 +40,8 @@ namespace Todo.Views
         private Picker _fuelTypePicker;
         private Picker _engineSizePicker;
 
+        private VrmLookupViewModel _viewModel;
+
 
         protected override async void OnAppearing()
         {
@@ -65,6 +68,8 @@ namespace Todo.Views
             _vrmRegex = new Regex(Strings.VrmEntry_Regex);
 
             _restVehicleServices = new RestVehicleServices();
+
+            _viewModel = new VrmLookupViewModel();
 
 
             _manufacturerPicker = new Picker
@@ -257,11 +262,11 @@ namespace Todo.Views
                         Orientation = StackOrientation.Horizontal,
                         Children=
                         {
-                            _fuelTypePicker,
-                            _engineSizePicker
+                            _engineSizePicker,
+                            _fuelTypePicker
                         }
-                        
-                    
+
+
                     }
                 }
             };
@@ -350,23 +355,34 @@ namespace Todo.Views
                         }
 
                         //set engine size
-                        double simpleEngineSize = 0;
-                        string justNumericEngine =
-                            new string(result["cylinderCapacity"].ToString().Cast<char>().Where(char.IsDigit).ToArray());
+                        
 
-                        if (double.TryParse(justNumericEngine, out simpleEngineSize))
+                        string justNumericEngine = Helpers.EngineSizeCcToDecimalString(result["cylinderCapacity"].ToString());
+                        _engineSizePicker.SelectedIndex = _engineSizePicker.Items.IndexOf(justNumericEngine);
+                        
+                        if (!bool.Parse(result["hasFailedMotLookup"].ToString()))
                         {
-                            var round = Math.Round(simpleEngineSize/1000,2);
-                            _engineSizePicker.SelectedIndex = _engineSizePicker.Items.IndexOf(round.ToString("#.#"));
+                            var odoHistory =
+                                result["motTestResults"].Where(t => !bool.Parse(t["hasFailures"].ToString())).Select(t => new OdometerHistory
+                                {
+                                    OdometerReading = Helpers.OdoStringOnlyDigits(t["odometer"].ToString()),
+                                    MotDate = DateTimeOffset.Parse(t["testDate"].ToString())
+                                });
+
+                            var odoProjection = _viewModel.EstimateCurrentOdometer(odoHistory, DateTimeOffset.Now);
+
+
+                            _odometerEntry.Text = Convert.ToDouble($"{odoProjection:G3}").ToString("R0");
+
                         }
-
-                        //TODO: implement estimated current odo
-
+                        
                     }
 
                 }
             }
         }
+
+        
 
     }
 }

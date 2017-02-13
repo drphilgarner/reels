@@ -32,6 +32,7 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers.cs" />
     <Compile Include="Models\Manufacturer.cs" />
     <Compile Include="Models\VehicleCapture.cs" />
     <Compile Include="Models\VideoClip.cs" />
@@ -48,6 +49,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Variables.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\VrmLookupViewModel.cs" />
     <Compile Include="Views\VrmLookupDetailsPage.cs" />
     <Compile Include="Views\ManufacturersListView.cs" />
     <Compile Include="Views\TodoListPage.xaml.cs">
