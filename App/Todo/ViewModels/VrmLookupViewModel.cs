@@ -16,7 +16,7 @@ namespace Todo.ViewModels
 
             var averageOdoIncrement = orderedOdo.Zip(orderedOdo.Skip(1), (y, x) => y.OdoInt - x.OdoInt).Average();
             
-            var timeSpanSinceLastMot = TimeSpan.FromTicks(projectionDate.Ticks - odometerHistories.OrderByDescending(t => t.MotDate).First().MotDate.Ticks);
+            var timeSpanSinceLastMot = TimeSpan.FromTicks(projectionDate.Ticks - orderedOdo.First().MotDate.Ticks);
             
             var milesPerDay = averageOdoIncrement / 365;
 
