@@ -45,6 +45,8 @@ namespace Foliown.Core
 
         public bool HasFailedMotLookup { get; set; }
 
+        public int EstimatedOdoreading { get; set; }
+
 
         public List<MotTestResult> MotTestResults { get; set; }
 

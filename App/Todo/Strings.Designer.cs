@@ -80,7 +80,7 @@ namespace Todo {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vehicle Reg.
+        ///   Looks up a localized string similar to Vehicle Reg..
         /// </summary>
         internal static string CaptureFlowScrollPage_CaptureFlowScrollPage_Your_number_plate {
             get {
@@ -89,7 +89,7 @@ namespace Todo {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Make.
+        ///   Looks up a localized string similar to Choose Manufacturer.
         /// </summary>
         internal static string Manufacturer {
             get {
@@ -112,6 +112,15 @@ namespace Todo {
         internal static string VrmLookupDetailsPage_VrmLookupDetailsPage_MODEL {
             get {
                 return ResourceManager.GetString("VrmLookupDetailsPage_VrmLookupDetailsPage_MODEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ODOMETER.
+        /// </summary>
+        internal static string VrmLookupDetailsPage_VrmLookupDetailsPage_ODOMETER {
+            get {
+                return ResourceManager.GetString("VrmLookupDetailsPage_VrmLookupDetailsPage_ODOMETER", resourceCulture);
             }
         }
     }

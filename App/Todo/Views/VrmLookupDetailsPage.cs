@@ -34,6 +34,10 @@ namespace Todo.Views
         private bool _isVrmValid;
         private Entry _colorEntry;
         private bool _isLookupSuccessful;
+        private Entry _odometerEntry;
+        private Picker _milesOrKilometersPicker;
+        private Picker _fuelTypePicker;
+        private Picker _engineSizePicker;
 
 
         protected override async void OnAppearing()
@@ -96,13 +100,13 @@ namespace Todo.Views
             _vrmEntry = new Entry
             {
                 Placeholder = Strings.CaptureFlowScrollPage_CaptureFlowScrollPage_Your_number_plate,
-                HorizontalOptions = LayoutOptions.StartAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
                 BindingContext = _vehicleCapture.VRM,
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Entry)),
                 HorizontalTextAlignment = TextAlignment.Center,
-                BackgroundColor = Color.Yellow,
+                BackgroundColor = Color.FromHex(Variables.VrmEntryColourFromHex),
                 Margin = thickness,
-                WidthRequest = 150
+                
                 
             };
             _vrmEntry.TextChanged += VrmEntry_TextChanged;
@@ -128,7 +132,8 @@ namespace Todo.Views
             _modelEntry = new Entry
             {
                 Placeholder = Strings.VrmLookupDetailsPage_VrmLookupDetailsPage_MODEL,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                HorizontalTextAlignment = TextAlignment.Start,
                 Margin = thickness,
                 IsEnabled = _isLookupSuccessful,
                 WidthRequest = 200
@@ -137,14 +142,13 @@ namespace Todo.Views
             
             _modelYearPicker = new Picker
             {
-                HorizontalOptions = LayoutOptions.StartAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
                 Margin = thickness,
                 IsEnabled = _isLookupSuccessful,
-                WidthRequest = 200,
 
             };
 
-            int modelYearsAgo = 75;
+            int modelYearsAgo = 100;
             foreach (var m in Enumerable.Range(DateTime.Now.Year - modelYearsAgo, modelYearsAgo))
             {
                 _modelYearPicker.Items.Add(m.ToString());
@@ -152,13 +156,56 @@ namespace Todo.Views
 
             _colorEntry = new Entry
             {
-                Placeholder = "Colour",
-                HorizontalOptions = LayoutOptions.EndAndExpand,
+                Placeholder = "COLOUR",
+                HorizontalOptions = LayoutOptions.FillAndExpand,
                 Margin = thickness,
-                WidthRequest = 200,
-
+                
                 IsEnabled = _isLookupSuccessful
             };
+
+            _odometerEntry = new Entry
+            {
+                Keyboard = Keyboard.Numeric,
+                Placeholder = Strings.VrmLookupDetailsPage_VrmLookupDetailsPage_ODOMETER,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = thickness,
+                IsEnabled = _isLookupSuccessful
+            };
+
+            _milesOrKilometersPicker = new Picker
+            {
+                IsEnabled = _isLookupSuccessful,
+                Margin = thickness,
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
+            _milesOrKilometersPicker.Items.Add("MILES");
+            _milesOrKilometersPicker.Items.Add("KILOMETERS");
+            _milesOrKilometersPicker.SelectedIndex = 0;
+
+            _fuelTypePicker = new Picker
+            {
+                IsEnabled = _isLookupSuccessful,
+                Margin = thickness,
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
+
+            var fuelTypes = new[] {"Petrol", "Diesel", "Other", "Hybrid Electric", "Electric" };
+            foreach (var f in fuelTypes)
+                _fuelTypePicker.Items.Add(f);
+
+            _engineSizePicker = new Picker
+            {
+                IsEnabled = _isLookupSuccessful,
+                Margin = thickness,
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
+
+            double smallestEngine = 0d;
+            double biggestEngine = 9d;
+            double increment = 0.1d;
+
+            for (double i = smallestEngine; i < biggestEngine; i+= increment)
+                _engineSizePicker.Items.Add(i.ToString("#.#"));
             
 
             _stackLayout = new StackLayout
@@ -195,6 +242,26 @@ namespace Todo.Views
                             _modelYearPicker,
                             _colorEntry
                         }
+                    },
+                    new StackLayout
+                    {
+                        Orientation = StackOrientation.Horizontal,
+                        Children =
+                        {
+                            _odometerEntry,
+                            _milesOrKilometersPicker
+                        }
+                    },
+                    new StackLayout
+                    {
+                        Orientation = StackOrientation.Horizontal,
+                        Children=
+                        {
+                            _fuelTypePicker,
+                            _engineSizePicker
+                        }
+                        
+                    
                     }
                 }
             };
@@ -259,12 +326,42 @@ namespace Todo.Views
                         _modelYearPicker.IsEnabled = true;
                         _colorEntry.IsEnabled = true;
                         _modelEntry.IsEnabled = true;
+                        _odometerEntry.IsEnabled = true;
+                        _milesOrKilometersPicker.IsEnabled = true;
+                        _fuelTypePicker.IsEnabled = true;
+                        _engineSizePicker.IsEnabled = true;
 
 
                         _modelEntry.Text = result["model"].ToString();
                         _colorEntry.Text = result["vehicleColour"].ToString();
-                        _modelYearPicker.SelectedIndex =
-                        _modelYearPicker.Items.IndexOf(result["yearOfManufactureDate"].ToString());
+                        _modelYearPicker.SelectedIndex = _modelYearPicker.Items.IndexOf(result["yearOfManufactureDate"].ToString());
+
+                        var fuelType = result["fuelType"].ToString();
+
+                        switch (fuelType)
+                        {
+                            case "Electric":
+                            case "Electricity":
+                                _fuelTypePicker.SelectedIndex = _fuelTypePicker.Items.IndexOf("ELECTRICITY");
+                                break;
+                            default:
+                                _fuelTypePicker.SelectedIndex = _fuelTypePicker.Items.IndexOf(fuelType);
+                                break;
+                        }
+
+                        //set engine size
+                        double simpleEngineSize = 0;
+                        string justNumericEngine =
+                            new string(result["cylinderCapacity"].ToString().Cast<char>().Where(char.IsDigit).ToArray());
+
+                        if (double.TryParse(justNumericEngine, out simpleEngineSize))
+                        {
+                            var round = Math.Round(simpleEngineSize/1000,2);
+                            _engineSizePicker.SelectedIndex = _engineSizePicker.Items.IndexOf(round.ToString("#.#"));
+                        }
+
+                        //TODO: implement estimated current odo
+
                     }
 
                 }

@@ -121,10 +121,10 @@
     <value>LOOKUP</value>
   </data>
   <data name="CaptureFlowScrollPage_CaptureFlowScrollPage_Your_number_plate" xml:space="preserve">
-    <value>Vehicle Reg</value>
+    <value>Vehicle Reg.</value>
   </data>
   <data name="Manufacturer" xml:space="preserve">
-    <value>Make</value>
+    <value>Choose Manufacturer</value>
   </data>
   <data name="CaptureFlowScrollPage_CaptureFlowScrollPage_CHOOSE_MAKE" xml:space="preserve">
     <value>CHOOSE MAKE</value>
@@ -134,5 +134,8 @@
   </data>
   <data name="VrmLookupDetailsPage_VrmLookupDetailsPage_MODEL" xml:space="preserve">
     <value>MODEL</value>
+  </data>
+  <data name="VrmLookupDetailsPage_VrmLookupDetailsPage_ODOMETER" xml:space="preserve">
+    <value>ODOMETER</value>
   </data>
 </root>

@@ -123,5 +123,14 @@ namespace Todo {
                 return ResourceManager.GetString("VehicleServices_VehicleServices_Manufacturers", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #ffee58.
+        /// </summary>
+        internal static string VrmEntryColourFromHex {
+            get {
+                return ResourceManager.GetString("VrmEntryColourFromHex", resourceCulture);
+            }
+        }
     }
 }

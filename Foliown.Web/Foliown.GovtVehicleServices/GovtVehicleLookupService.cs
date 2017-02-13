@@ -31,6 +31,11 @@ namespace Foliown.GovtVehicleServices
                 var vrmResult = vesService.ParseResponse(vrmHtmlResult.Result).Result;
                 var motResult = motService.ParseResponse(motHtmlResult.Result).Result;
 
+                if (!motResult.HasFailedMotLookup)
+                {
+                    
+                }
+
                 var mergedResult = Helpers.Merge<VesVehicleDetails>(vrmResult, motResult);
                
                 return mergedResult;
