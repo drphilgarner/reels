@@ -10,6 +10,7 @@ namespace Foliown.Video
 {
     public class FfmmpegDriver
     {
+        private Process _process;
         private const string OutputFolder = "output";
 
         public FfmmpegDriver()
@@ -45,34 +46,33 @@ namespace Foliown.Video
                 Arguments = $"-f concat -safe 0 -i {sourcePath} -codec copy {destPath}\\{outputFilename}"
             };
 
-            var proc = new Process
+            _process = new Process
             {
                 StartInfo = psi,
                 EnableRaisingEvents = true
             };
             try
             {
-                proc.ErrorDataReceived += Proc_ErrorDataReceived;
-                proc.OutputDataReceived += Proc_OutputDataReceived;
-                proc.Exited += Proc_Exited;
+                _process.ErrorDataReceived += Proc_ErrorDataReceived;
+                _process.OutputDataReceived += Proc_OutputDataReceived;
+                _process.Exited += Proc_Exited;
 
-                proc.Start();
+                _process.Start();
 
-                proc.BeginErrorReadLine();
-                proc.BeginOutputReadLine();
+                _process.BeginErrorReadLine();
+                _process.BeginOutputReadLine();
 
             }
             catch
             {
-                if (proc != null)
-                    proc.Dispose();
+                _process.Dispose();
             }
 
         }
 
         private void Proc_Exited(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _process.Dispose();
         }
 
         private void Proc_OutputDataReceived(object sender, DataReceivedEventArgs e)
