@@ -11,45 +11,46 @@ namespace Foliown.Video
     public class FfmmpegDriver
     {
         private Process _process;
+        private string _sourcePath = string.Empty;
         private const string OutputFolder = "output";
 
-        public FfmmpegDriver()
-        {
-                
-        }
 
         public void ConcatVideo(List<string> filePaths, string outputFilename)
         {
+
             //ffmpeg -f concat -safe 0 -i ..\videos\input.txt -codec copy ..\videos\output.mp4
 
             var inputFileName = Guid.NewGuid() + ".txt";
 
-            var destPath = Environment.CurrentDirectory + $"\\{OutputFolder}";
+            var destPath = Path.Combine(Environment.CurrentDirectory, OutputFolder);
             if (!Directory.Exists(destPath))
             {
                 Directory.CreateDirectory(destPath);
             }
 
-            var sourcePath = Environment.CurrentDirectory + $"\\work\\{inputFileName}";
-            using (var fs = new StreamWriter(sourcePath))
+            _sourcePath = Path.Combine(Environment.CurrentDirectory, inputFileName);
+
+            using (var fs = File.CreateText(_sourcePath))
             {
                 filePaths.ForEach(t => fs.WriteLine($"file '{t}'"));
             }
 
+
             var psi = new ProcessStartInfo()
             {
-                FileName = "ffmpeg.exe",
-                RedirectStandardInput = true,
+                FileName = "ffmpeg\\ffmpeg.exe",
+                RedirectStandardOutput = true,
                 RedirectStandardError = true,
-                UseShellExecute = true,
+                UseShellExecute = false,
                 CreateNoWindow = false,
-                Arguments = $"-f concat -safe 0 -i {sourcePath} -codec copy {destPath}\\{outputFilename}"
+                Arguments = $"-f concat -safe 0 -i {_sourcePath} -codec copy {destPath}\\{outputFilename}"
             };
 
             _process = new Process
             {
                 StartInfo = psi,
-                EnableRaisingEvents = true
+                EnableRaisingEvents = true,
+
             };
             try
             {
@@ -61,10 +62,12 @@ namespace Foliown.Video
 
                 _process.BeginErrorReadLine();
                 _process.BeginOutputReadLine();
+                _process.WaitForExit();
 
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 _process.Dispose();
             }
 
@@ -73,16 +76,19 @@ namespace Foliown.Video
         private void Proc_Exited(object sender, EventArgs e)
         {
             _process.Dispose();
+
+            if (File.Exists(_sourcePath))
+                File.Delete(_sourcePath);
         }
 
         private void Proc_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void Proc_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
