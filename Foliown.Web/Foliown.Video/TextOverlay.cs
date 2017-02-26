@@ -13,5 +13,9 @@
         public double XPos { get; set; }
 
         public double YPos { get; set; }
+
+        public int FontSize { get; set; }
+
+        public string FontColor { get; set; } //https://ffmpeg.org/ffmpeg-utils.html#Color
     }
 }

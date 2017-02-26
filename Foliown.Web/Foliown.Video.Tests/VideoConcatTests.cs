@@ -58,14 +58,18 @@ namespace Foliown.Video.Tests
                     Text = "sell your car",
                     Duration = 4,
                     Timecode = 1,
-                    FontPath = "/Windows/Fonts/Arial.ttf"
+                    FontPath = "/Windows/Fonts/Arial.ttf",
+                    FontColor = "White",
+                    FontSize = 72
                 },
                 new TextOverlay
                 {
                     Text = "with Foliown Motors",
                     Duration = 4,
                     Timecode = 5,
-                    FontPath = "/Windows/Fonts/Arial.ttf"
+                    FontPath = "/Windows/Fonts/Arial.ttf",
+                    FontColor = "White",
+                    FontSize = 72
 
                 }
             };

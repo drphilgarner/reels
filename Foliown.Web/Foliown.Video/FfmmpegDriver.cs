@@ -78,9 +78,7 @@ namespace Foliown.Video
             List<TextOverlay> textOverlays)
         {
 
-            //ffmpeg -f concat -safe 0 -i ..\videos\input.txt -codec copy ..\videos\output.mp4
-
-            var inputFileName = Guid.NewGuid() + ".txt";
+                  var inputFileName = Guid.NewGuid() + ".txt";
 
             var destPath = Path.Combine(Environment.CurrentDirectory, OutputFolder);
             if (!Directory.Exists(destPath))
@@ -89,22 +87,43 @@ namespace Foliown.Video
             }
 
             _sourcePath = Path.Combine(Environment.CurrentDirectory, inputFileName);
-
-            using (var fs = File.CreateText(_sourcePath))
-            {
-                filePaths.ForEach(t => fs.WriteLine($"file '{t}'"));
-            }
-
+            
             var sourceFiles = filePaths.Select(f => $" -i {f} ").ToList();
 
-            sourceFiles.ForEach(t =>
+            filePaths.ForEach(t =>
             {
                 if (!File.Exists(t)) throw new FileNotFoundException($"{t} not found when preprocessing video.");
             });
             
             var joinedSources = sourceFiles.Aggregate((x,y) => x+y);
 
+            //FFMPEG filter docs
+            //http://ffmpeg.org/ffmpeg-filters.html#drawtext-1
 
+            //check fonts exist
+            textOverlays.ForEach(t =>
+            {
+                if (!File.Exists(t.FontPath)) throw new Exception($"Target font file not found {t.FontPath}");
+            });
+
+            string builtArgs = $" {joinedSources} " +
+                               "-y -filter_complex \"[0:0] [0:1] [1:0] [1:1]" +
+                               $"concat=n={filePaths.Count}:v=1:a=1 [v] [a]; [v]" ;
+
+            foreach (var t in textOverlays)
+            {
+                if (textOverlays.IndexOf(t) != 0)
+                    builtArgs += ",";
+
+                builtArgs += $"drawtext=fontsize={t.FontSize}:fontcolor={t.FontColor}" +
+                             $":fontfile={t.FontPath}:text={t.Text}" +
+                             ":x=(w-tw)/2:y=(h/PHI)+th:box=1:boxcolor=black@0.4" +
+                             $":enable=gt(t\\,{t.Timecode})*lt(t\\,{t.Timecode + t.Duration})";
+            }
+
+            builtArgs += $"[output]\" -map \"[output]\" -map \"[a]\" {OutputFolder}\\{outputFilename}";
+
+            
             var psi = new ProcessStartInfo()
             {
                 FileName = "ffmpeg\\ffmpeg.exe",
@@ -112,10 +131,19 @@ namespace Foliown.Video
                 RedirectStandardError = true,
                 UseShellExecute = false,
                 CreateNoWindow = false,
-                Arguments = $"-f concat -safe 0 {joinedSources} -codec " +
-                            "-y -filter_complex \'[0:0] [0:1] [1:0] [1:1]" +
-                            $"copy {destPath}\\{  outputFilename}"
+                Arguments = builtArgs
             };
+
+            //λ ffmpeg\ffmpeg.exe - i SourceFiles\1.mp4 - i SourceFiles\2.mp4 - y 
+            //-filter_complex "[0:0] [0:1] [1:0] [1:1] concat=n=2:v=1:a=1 [v] [a]; 
+            //[v]drawtext=fontsize=72:fontcolor=White:fontfile=/Windows/Fonts/Arial.ttf:
+            //textfile =videoMsg.txt:x=(w-tw)/2:y=(h/PHI)+th:box=1:boxcolor=black@0.4:
+            //enable =lt(t\,5),drawtext=fontsize=72:text=SG08BBS:
+            //fontcolor =White:fontfile=/Windows/Fonts/Arial.ttf:
+            //enable =gt(t\,9)*lt(t\,11):x=(w-tw)/2:y=(h/PHI)+th:box=1:
+            //boxcolor =black@0.4[o]" - map "[o]" - map "[a]" outputWithText.mp4
+
+
 
             _process = new Process
             {
