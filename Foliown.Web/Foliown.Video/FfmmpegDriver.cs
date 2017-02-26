@@ -73,6 +73,77 @@ namespace Foliown.Video
 
         }
 
+        public void ConcatAndOverlayTextVideo(List<string> filePaths,
+            string outputFilename,
+            List<TextOverlay> textOverlays)
+        {
+
+            //ffmpeg -f concat -safe 0 -i ..\videos\input.txt -codec copy ..\videos\output.mp4
+
+            var inputFileName = Guid.NewGuid() + ".txt";
+
+            var destPath = Path.Combine(Environment.CurrentDirectory, OutputFolder);
+            if (!Directory.Exists(destPath))
+            {
+                Directory.CreateDirectory(destPath);
+            }
+
+            _sourcePath = Path.Combine(Environment.CurrentDirectory, inputFileName);
+
+            using (var fs = File.CreateText(_sourcePath))
+            {
+                filePaths.ForEach(t => fs.WriteLine($"file '{t}'"));
+            }
+
+            var sourceFiles = filePaths.Select(f => $" -i {f} ").ToList();
+
+            sourceFiles.ForEach(t =>
+            {
+                if (!File.Exists(t)) throw new FileNotFoundException($"{t} not found when preprocessing video.");
+            });
+            
+            var joinedSources = sourceFiles.Aggregate((x,y) => x+y);
+
+
+            var psi = new ProcessStartInfo()
+            {
+                FileName = "ffmpeg\\ffmpeg.exe",
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = false,
+                Arguments = $"-f concat -safe 0 {joinedSources} -codec " +
+                            "-y -filter_complex \'[0:0] [0:1] [1:0] [1:1]" +
+                            $"copy {destPath}\\{  outputFilename}"
+            };
+
+            _process = new Process
+            {
+                StartInfo = psi,
+                EnableRaisingEvents = true,
+
+            };
+            try
+            {
+                _process.ErrorDataReceived += Proc_ErrorDataReceived;
+                _process.OutputDataReceived += Proc_OutputDataReceived;
+                _process.Exited += Proc_Exited;
+
+                _process.Start();
+
+                _process.BeginErrorReadLine();
+                _process.BeginOutputReadLine();
+                _process.WaitForExit();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                _process.Dispose();
+            }
+
+        }
+
         private void Proc_Exited(object sender, EventArgs e)
         {
             _process.Dispose();

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="FfmmpegDriver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextOverlay.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ffmpeg\ffmpeg.exe">
