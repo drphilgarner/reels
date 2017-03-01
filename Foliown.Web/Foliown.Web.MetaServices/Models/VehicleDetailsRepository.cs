@@ -1,7 +1,7 @@
 using Foliown.Core;
 using Foliown.GovtVehicleServices;
 
-namespace Foliown.Web.Services.Models
+namespace Foliown.Web.MetaServices.Models
 {
     public class VehicleDetailsRepository : IVesVehicleDetailsRepository
     {

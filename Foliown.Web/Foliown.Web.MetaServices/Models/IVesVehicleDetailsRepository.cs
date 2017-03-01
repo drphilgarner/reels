@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Foliown.Web.Services.Models
+namespace Foliown.Web.MetaServices.Models
 {
     public interface IVesVehicleDetailsRepository
     {

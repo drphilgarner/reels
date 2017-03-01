@@ -6,7 +6,7 @@ using Foliown.SearchServices;
 using Microsoft.AspNetCore.WebUtilities;
 
 
-namespace Foliown.Web.Services.Models
+namespace Foliown.Web.MetaServices.Models
 {
     public class ImageSearchRepository : IImageSearchRepository
     {

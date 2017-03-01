@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 
-namespace Foliown.Web.Services
+namespace Foliown.Web.MetaServices
 {
     public class Program
     {

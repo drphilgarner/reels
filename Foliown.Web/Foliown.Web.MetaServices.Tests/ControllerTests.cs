@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Foliown.SearchServices;
 using Xunit;
 
-namespace Foliown.Web.Services.Tests
+namespace Foliown.Web.MetaServices.Tests
 {
 
     public class ControllerTests

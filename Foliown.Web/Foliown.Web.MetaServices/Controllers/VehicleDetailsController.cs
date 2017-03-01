@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Foliown.Web.Services.Models;
+using Foliown.Web.MetaServices.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Foliown.Web.Services.Controllers
+namespace Foliown.Web.MetaServices.Controllers
 {
     [Route("api/[controller]")]
     public class VehicleDetailsController : Controller

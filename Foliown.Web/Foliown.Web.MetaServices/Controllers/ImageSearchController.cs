@@ -1,7 +1,7 @@
-using Foliown.Web.Services.Models;
+using Foliown.Web.MetaServices.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Foliown.Web.Services.Controllers
+namespace Foliown.Web.MetaServices.Controllers
 {
     [Route("api/[controller]")]
     public class ImageSearchController : Controller
